@@ -1,6 +1,6 @@
 import os
 
-directory = '/var/www/public/{projectname}/wp-content/themes'
+directory = '/var/www/public/{projectname}/wp-content/themes/{projectname}'
 find = "fadboilerplatetheme"
 find2 = "fadboilerplate"
 replace = "{projectname}"
