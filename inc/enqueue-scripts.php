@@ -1,6 +1,6 @@
 <?php
 /**
- * Enqueue scripts and styles.
+ * Enqueue scripts and styles for the frontend.
  */
 function fadboilerplate_scripts() {
 	wp_enqueue_style( 'fadboilerplate-style', get_stylesheet_uri(), array(), _S_VERSION );
@@ -16,3 +16,20 @@ function fadboilerplate_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'fadboilerplate_scripts' );
+
+/**
+ * Custom Login Styles
+ */
+function my_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/css/wp_login.css' );
+}
+add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+
+/**
+ * Custom Admin Styles
+ */
+function my_admin_theme_style() {
+    wp_enqueue_style('my-admin-theme', get_template_directory_uri() . '/css/wp_admin.css');
+}
+add_action('admin_enqueue_scripts', 'my_admin_theme_style');
+

@@ -71,3 +71,71 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Mobile Browser Detection
+ */
+require_once get_template_directory() . '/inc/Mobile_Detect.php';
+function is_mobile() {
+	$detect = new Mobile_Detect;
+	return $detect->isMobile();
+}
+
+/**
+ * Custom Filters
+ */
+require_once(get_template_directory() . '/inc/filters.php');
+
+/**
+ * Custom Post Types
+ */
+foreach (glob(get_template_directory() . "/post-types/*.php") as $filename)
+{
+    include $filename;
+}
+
+/**
+ * Custom Taxonomies
+ */
+foreach (glob(get_template_directory() . "/taxonomies/*.php") as $filename)
+{
+    include $filename;
+}
+
+/**
+ * SVG handler
+ */
+require_once(get_template_directory() . '/svg/svg.php');
+
+/**
+ * Custom Theme Shortcodes
+ */
+require_once(get_template_directory() . '/inc/shortcodes.php');
+
+/**
+ * Restricting content based on login, ACF, and post types
+ */
+require_once(get_template_directory() . '/inc/restrict-content-by-acf.php');
+
+/**
+ * Allow Editor access to Ninja Forms
+ */
+require_once(get_template_directory() . '/inc/ninja-forms-editor.php');
+
+/**
+ * Advanced Custom Fields (ACF) Spefici Tweaks
+ */
+require_once(get_template_directory() . '/inc/acf.php');
+
+/**
+ * Register Custom Navigation Walker
+ * https://github.com/wp-bootstrap/wp-bootstrap-navwalker
+ */
+if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
+    // File does not exist... return an error.
+    return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+} else {
+    // File exists... require it.
+    require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+}
+

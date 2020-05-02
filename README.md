@@ -18,13 +18,12 @@ git config --global core.autocrlf input
 
 ##Includes
 
- <!-- - [ACF Pro](http://advancedcustomfields.com/) -->
- <!-- - MailChimp API -->
- <!-- - Mandril API -->
- <!-- - [Mobile_Detect.php](http://mobiledetect.net) -->
+ - [Mobile_Detect.php](http://mobiledetect.net)
  <!-- - [Wow.js](http://mynameismatthieu.com/WOW/docs.html) -->
- <!-- - [Boostrap 3](http://getbootstrap.com/) -->
+ <!-- - [Boostrap 4](http://getbootstrap.com/) -->
  <!-- - [Bourbon.io](http://bourbon.io/) -->
+ - [Slick Slider](https://kenwheeler.github.io/slick/)
+ - [TweenMax](https://greensock.com/tweenmax/)
 
 ##Recommendations
 
@@ -63,6 +62,8 @@ git config --global core.autocrlf input
    Theme javascript files
  - **/languages**
    Translations
+ - **/lib**
+   Area for external libraries added in whole.
  - **/ninja-forms**
    Template files for Ninja Forms 3
  - **/post-types**
@@ -72,6 +73,8 @@ git config --global core.autocrlf input
    SCSS files for styles.
    To compile run
    ```$: cd {theme-root}; sass --watch scss:css```
+ - **/shortcodes**
+   Files for WordPress shortcodes.
  - **/snippets**
    Misc code snippets that could be useful
  - **/svg**
@@ -117,6 +120,8 @@ These are typically installed by wp-cli and in wp_init.sh
 - Update and streamline renameall.py
 - Add variables to wp_init.sh 
 - Add ability to install pro plugins hosted by FA to wp_init.sh
+- Look into using transients to store menu results, mentioned in the readme here: (https://github.com/wp-bootstrap/wp-bootstrap-navwalker)
+
 
 ---
 
