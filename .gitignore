@@ -1,0 +1,91 @@
+# -----------------------------------------------------------------
+# Initially sourced from:
+#   .gitignore for WordPress
+#   Bare Minimum Git
+#   http://ironco.de/bare-minimum-git/
+#   ver 20150227
+#
+#
+# -----------------------------------------------------------------
+
+# ignore everything in the root except the "wp-content" directory.
+#/*
+#!wp-content/
+# WE CHOOSE TO TRACK EVERYTHING AND DEPLOY WITH GIT
+
+# ignore all files starting with .
+.*
+
+# track this file .gitignore (i.e. do NOT ignore it)
+!.gitignore
+# track .editorconfig file (i.e. do NOT ignore it)
+!.editorconfig
+# track readme.md in the root (i.e. do NOT ignore it)
+!readme.md
+!README.md
+!CHANGELOG.md
+!composer.json
+!.htaccess
+
+# ignore all files that start with ~
+~*
+
+# ignore node dependency directories (used by grunt)
+node_modules/
+
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# ignore log files and databases
+*.log
+*.sql 
+*.sqlite
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+#IGNORE wp-config.php BECAUSE IT CHANGES ON EACH SERVER
+wp-config.php
+
+#INGORE helper shell scripts
+save_database.sh
+import_database.sh
+*.sh
+
+#IGNORE W3 Total Cache
+db.php
+advanced-cache.php
+object-cache.php
+cache*
+
+#IGNORE tmp directory
+tmp/
+
+#IGNORE JSON files, e.g. social media imports
+*.json
+
+#IGNORE backup files
+*_bak*
+*_back*
+*_backup*

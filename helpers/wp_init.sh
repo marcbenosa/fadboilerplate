@@ -3,6 +3,9 @@
 # Author: 	John Himics
 # URL:		JohnHimics.com
 
+#cd to the site root
+cd /var/www/{projectfolder};
+
 #create database
 mysql -uroot -proot  -e "CREATE DATABASE {projectfolder};"
 mysql -uroot -proot {projectfolder} -e "GRANT ALL PRIVILEGES ON {projectfolder}.* TO \"{projectfolder}\"@\"localhost\" IDENTIFIED BY \"{projectfolder}\";"
