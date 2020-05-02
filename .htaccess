@@ -1,6 +1,11 @@
+## Prevent public access to git repo.
 Options -Indexes
 RedirectMatch 404 /\.git
 
+## Set the name of the environment
+# for plugins and themes that act differently on staging/local than production.
+# This should be set in the root website directory to take full effect.
 SetEnv WP_ENV 'local'
 # SetEnv WP_ENV 'development'
 # SetEnv WP_ENV 'production'
+

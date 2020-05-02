@@ -11,25 +11,25 @@ mysql -uroot -proot  -e "CREATE DATABASE {projectfolder};"
 mysql -uroot -proot {projectfolder} -e "GRANT ALL PRIVILEGES ON {projectfolder}.* TO \"{projectfolder}\"@\"localhost\" IDENTIFIED BY \"{projectfolder}\";"
 mysql -uroot -proot {projectfolder} -e "FLUSH PRIVILEGES;"
 
-#copy the wp-config file
+##copy the wp-config file
 cp wp-config-local.php wp-config.php
 
-#install
+##install
 wp core install --url="http://fad.local/{projectfolder}" --title="Site Title" --admin_user="fad-admin" --admin_password="D4d843B9ZsVoAsgy" --admin_email="info@firstascentdesign.com"
 
-# remove tagline by default
+## remove tagline by default
 wp option update blogdescription ""
 
-# Update the core
+## Update the core
 wp core update
 
-# set rewrite structure
+## set rewrite structure
 wp rewrite structure '/%postname%/'
 
-# activate the theme
+## activate the theme
 wp theme activate {projectfolder}
 
-# set options
+## set options
 #   Usage
 #   wp option add my_option foobar
 #   wp option update my_option foobar
@@ -57,7 +57,7 @@ wp theme activate {projectfolder}
 #     page_for_posts		16
 #     page_on_front			14
 
-# Create Pages
+## Create Pages
 # Possible Attributes (from: https://codex.wordpress.org/Function_Reference/wp_insert_post)
 #   'post_content'   => [ <string> ] // The full text of the post.
 #   'post_name'      => [ <string> ] // The name (slug) for your post
@@ -86,17 +86,17 @@ wp post create --post_type=page --post_title='Contact' --post_content='Contact C
 wp post create --post_type=page --post_title='Blog' --post_content='Blog Content' --post_status=publish --comment_status='closed'
 wp post create --post_type=page --post_title='Privacy Policy' --post_content='Privacy Policy Content' --post_status=publish --comment_status='closed'
 
-# Set the Front page and Blog Page
+## Set the Front page and Blog Page
 wp option update page_on_front $(wp post list --post_title="Front Page" --fields=ID --format=ids)
 wp option update page_for_posts $(wp post list --post_title="Blog" --fields=ID --format=ids)
 
-# Create Sample Posts
+## Create Sample Posts
 # wp post create --post_type=post --post_title='Blog Post 1' --post_content='Blog Post 1 Content' --post_status=publish --comment_status='open'
 # wp post create --post_type=post --post_title='Blog Post 2' --post_content='Blog Post 2 Content' --post_status=publish --comment_status='open'
 # wp post create --post_type=post --post_title='Blog Post 3' --post_content='Blog Post 3 Content' --post_status=publish --comment_status='open'
 # wp post create --post_type=post --post_title='Blog Post 4' --post_content='Blog Post 4 Content' --post_status=publish --comment_status='open'
 
-# Install Plugins
+## Install Plugins from WordPress.org via WP CLI
 wp plugin install backwpup
 wp plugin install duplicate-post
 wp plugin install google-analytics-for-wordpress
@@ -111,7 +111,12 @@ wp plugin install wordpress-seo
 # wp plugin install wp-example-content
 # wp plugin install wp-help
 
-# Activate Plugins
+## Install Plugins from FA Repository
+# ACF Pro
+# Monster Insights Pro
+# etc.
+
+## Activate Plugins
 #   These are the development plugin to activate
 wp plugin activate advanced-custom-fields-pro
 wp plugin activate backwpup
@@ -120,23 +125,23 @@ wp plugin activate tinymce-advanced
 wp plugin activate white-label-cms
 wp plugin activate wp-admin-ui-customize
 
-# update plugins
+## update plugins
 wp plugin update --all
 
-# Create Custom Post Types
+## Create Custom Post Types
 #   Usage
 #   wp scaffold post-type <cpt_name> <--theme OR --plugin=pluginname>
 # wp scaffold post-type our_stories --theme
 # wp scaffold post-type press --theme
 
-#Create Test Posts for the Post Types
-
-
-
-# Launch Stuff
+##Create Test Posts for the Post Types
 #
 
-# Search/replace to a SQL file without transforming the database
+
+## Launch Stuff
+#
+
+## Search/replace to a SQL file without transforming the database
 # wp search-replace foo bar --export=database.sql
 
 

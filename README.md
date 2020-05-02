@@ -115,7 +115,8 @@ These are typically installed by wp-cli and in wp_init.sh
 ---
 #TODO
 - Update and streamline renameall.py
-
+- Add variables to wp_init.sh 
+- Add ability to install pro plugins hosted by FA to wp_init.sh
 
 ---
 
