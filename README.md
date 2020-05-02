@@ -19,11 +19,16 @@ git config --global core.autocrlf input
 ##Includes
 
  - [Mobile_Detect.php](http://mobiledetect.net)
- <!-- - [Wow.js](http://mynameismatthieu.com/WOW/docs.html) -->
- <!-- - [Boostrap 4](http://getbootstrap.com/) -->
+ - [Boostrap 4](http://getbootstrap.com/)
  <!-- - [Bourbon.io](http://bourbon.io/) -->
  - [Slick Slider](https://kenwheeler.github.io/slick/)
  - [TweenMax](https://greensock.com/tweenmax/)
+ - [GASP](https://greensock.com/get-started/#loading-gsap)
+ - [ScrollMagic](https://scrollmagic.io/)
+ - [Jquery Match Height](https://github.com/liabru/jquery-match-height)
+ - [Popper.js](https://popper.js.org/)
+ - [Respond.js](https://github.com/scottjehl/Respond)
+
 
 ##Recommendations
 
@@ -105,14 +110,33 @@ These are typically installed by wp-cli and in wp_init.sh
 ##Must-Use Plugins
  - 
 
-##Practices to follow
- - Page-specific templates should have:
-   - a page-{name}.php main template file
-   - and a content-{name}.php content file
-   - e.g. page-about.php and content-about.php
+#Practices to follow
+##Page-specific templates
+Page-specific templates should have:
+ - a page-{name}.php main template file
+ - and a content-{name}.php content file
+ - e.g. page-about.php and content-about.php
  - Reusable sections of the site should be in the /partials folders
    - and named partial-{name-of-feature-or-section}.php
+
+##Block Folder Structure
+
+
+##Keep This Readme up to date 
  - Update the theme's readme.md with pertinent information as you go.
+
+##Mobile First Styling
+We will use Bootstrap 4 mobile-first styling breakpoints:
+Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap
+Small devices (landscape phones, 576px and up)
+`@media (min-width: 576px) { ... }`
+Medium devices (tablets, 768px and up)
+`@media (min-width: 768px) { ... }`
+Large devices (desktops, 992px and up)
+`@media (min-width: 992px) { ... }`
+Extra large devices (large desktops, 1200px and up)
+`@media (min-width: 1200px) { ... }`
 
 
 ---
@@ -121,6 +145,14 @@ These are typically installed by wp-cli and in wp_init.sh
 - Add variables to wp_init.sh 
 - Add ability to install pro plugins hosted by FA to wp_init.sh
 - Look into using transients to store menu results, mentioned in the readme here: (https://github.com/wp-bootstrap/wp-bootstrap-navwalker)
+- Build process
+- Include prefixer in build process https://github.com/postcss/autoprefixer
+- 
+
+#Thoughts for the future
+- Bootstrap Gutenberg Blocks. Not implemented yet. https://github.com/liip/bootstrap-blocks-wordpress-plugin
+- [Blocklab](https://getblocklab.com/) potentially instead of ACF for developing blocks.
+- [UnderStap](https://understrap.com/) integrates Bootstrap into Underscores.me, WooCommerce, and Blocks.
 
 
 ---

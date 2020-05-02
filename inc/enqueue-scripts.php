@@ -14,11 +14,16 @@ function fadboilerplate_scripts() {
 	// Slick Slider CSS
 	// https://kenwheeler.github.io/slick/
     wp_enqueue_style( "slick-style", get_template_directory_uri() . '/lib/slick/slick.css', false, NULL, 'all' );
-  	wp_enqueue_style( 'slick-style' );
   	wp_enqueue_style( "slick-theme-style", get_template_directory_uri() . '/lib/slick/slick-theme.css', false, NULL, 'all' );
-  	wp_enqueue_style( 'slick-theme-style' );
 
-    // Template Stylesheet
+  	// Bootstrap 4 Styles
+	// https://getbootstrap.com
+	// By Local files
+    wp_enqueue_style( "bootstrap", get_template_directory_uri() . '/lib/bootstrap4/css/bootstrap.min.css', false, NULL, 'all' );
+	// By CDN
+    // wp_enqueue_style( "bootstrap", 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', false, NULL, 'all' );
+
+    // Theme Stylesheet
 	wp_enqueue_style( 'fadboilerplate-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'fadboilerplate-style', 'rtl', 'replace' );
 
@@ -74,6 +79,15 @@ function fadboilerplate_scripts() {
 	// by CDN
 	wp_register_script( "match-height-js", "https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js", array('jquery'), NULL, 'all' );
 	wp_enqueue_script( 'match-height-js' );
+
+	// Bootstrap 4 Scripts
+	// https://getbootstrap.com
+	// by Local files
+	wp_register_script( "bootstrap-js", get_template_directory_uri() . '/lib/bootstrap4/js/bootstrap.min.js', array('jquery'), NULL, 'all' );
+	wp_enqueue_script( 'bootstrap-js' );
+	// by CDN
+	// wp_register_script( "bootstrap-js", 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', array('jquery'), NULL, 'all' );
+	// wp_enqueue_script( 'bootstrap-js' );
 
 	// Theme Scripts
 	wp_register_script( 'fadboilerplate-js', get_template_directory_uri() . '/js/fadboilerplate.js', array('jquery'), NULL, true );
