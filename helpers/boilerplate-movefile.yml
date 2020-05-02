@@ -1,0 +1,108 @@
+global:
+  # sql_adapter: "default"
+  sql_adapter: "wpcli"
+
+local:
+  vhost: "http://fad.local/{DB_NAME}"
+  wordpress_path: "/var/www/public/{DB_NAME}" # use an absolute path here
+
+  database:
+    name: "{DB_NAME}"
+    user: "{DB_NAME}"
+    password: "{DB_NAME}"
+    host: "localhost"
+    mysqldump_options: "--add-drop-table --ignore-table={DB_NAME}.wp_wfVulnScanners --ignore-table={DB_NAME}.wp_wfThrottleLog --ignore-table={DB_NAME}.wp_wfStatus --ignore-table={DB_NAME}.wp_wfSNIPCache --ignore-table={DB_NAME}.wp_wfScanners --ignore-table={DB_NAME}.wp_wfReverseCache --ignore-table={DB_NAME}.wp_wfNet404s --ignore-table={DB_NAME}.wp_wfLogins --ignore-table={DB_NAME}.wp_wfLocs --ignore-table={DB_NAME}.wp_wfLockedOut --ignore-table={DB_NAME}.wp_wfLeechers --ignore-table={DB_NAME}.wp_wfKnownFileList --ignore-table={DB_NAME}.wp_wfIssues --ignore-table={DB_NAME}.wp_wfHoover --ignore-table={DB_NAME}.wp_wfHits --ignore-table={DB_NAME}.wp_wfFileMods --ignore-table={DB_NAME}.wp_wfCrawlers --ignore-table={DB_NAME}.wp_wfConfig --ignore-table={DB_NAME}.wp_wfBlocksAdv --ignore-table={DB_NAME}.wp_wfBlocks --ignore-table={DB_NAME}.wp_wfBlockedIPLog --ignore-table={DB_NAME}.wp_wfBadLeechers"
+
+staging:
+  vhost: "http://firstascentstaging.com/{DB_NAME}/"
+  wordpress_path: "/var/www/firstascentstaging.com/public_html/{DB_NAME}/" # use an absolute path here
+
+  database:
+    name: "{DB_NAME}"
+    user: "{DB_NAME}"
+    password: "{DB_NAME}"
+    host: "localhost"
+    # port: "3308" # Use just in case you have exotic server config
+    # mysqldump_options: "--max_allowed_packet=1G" # Only available if using SSH
+    mysqldump_options: "--add-drop-table --ignore-table={DB_NAME}.wp_wfVulnScanners --ignore-table={DB_NAME}.wp_wfThrottleLog --ignore-table={DB_NAME}.wp_wfStatus --ignore-table={DB_NAME}.wp_wfSNIPCache --ignore-table={DB_NAME}.wp_wfScanners --ignore-table={DB_NAME}.wp_wfReverseCache --ignore-table={DB_NAME}.wp_wfNet404s --ignore-table={DB_NAME}.wp_wfLogins --ignore-table={DB_NAME}.wp_wfLocs --ignore-table={DB_NAME}.wp_wfLockedOut --ignore-table={DB_NAME}.wp_wfLeechers --ignore-table={DB_NAME}.wp_wfKnownFileList --ignore-table={DB_NAME}.wp_wfIssues --ignore-table={DB_NAME}.wp_wfHoover --ignore-table={DB_NAME}.wp_wfHits --ignore-table={DB_NAME}.wp_wfFileMods --ignore-table={DB_NAME}.wp_wfCrawlers --ignore-table={DB_NAME}.wp_wfConfig --ignore-table={DB_NAME}.wp_wfBlocksAdv --ignore-table={DB_NAME}.wp_wfBlocks --ignore-table={DB_NAME}.wp_wfBlockedIPLog --ignore-table={DB_NAME}.wp_wfBadLeechers"
+
+  exclude:
+    - ".tags"
+    - ".git/"
+    - ".gitignore"
+    - ".sass-cache/"
+    - "node_modules/"
+    - "bin/"
+    - "tmp/*"
+    - "Gemfile*"
+    - "Movefile"
+    - "Movefile.yml"
+    - "Movefile.yaml"
+    - "movefile"
+    - "movefile.yml"
+    - "movefile.yaml"
+    - "wp-config.php"
+    - "wp-content/*.sql"
+    - ".htaccess"
+    #ignore the W3 Total Cache files
+    - "wp-content/advanced-cache.php"
+    - "wp-content/db.php"
+    - "wp-content/object-cache.php"
+    - "wp-content/cache/"
+    #hide the theme if handling via git
+    - "wp-content/themes/{THEMENAME}/"
+    #hide development plugins
+    - "wp-content/plugins/simply-show-hooks/"
+    - "wp-content/plugins/show-current-template/"
+
+  ssh:
+    host: "165.227.116.120"
+    user: "poof"
+    rsync_options: "--no-perms --no-owner --no-group --no-times --checksum"
+
+production:
+  vhost: "{URL}"
+  wordpress_path: "{PATH}" # use an absolute path here
+
+  database:
+    name: "{DB_NAME}"
+    user: "{DB_NAME}"
+    password: "{DB_NAME}"
+    host: "{DB_HOST}"
+    # port: "3308" # Use just in case you have exotic server config
+    # mysqldump_options: "--max_allowed_packet=1G" # Only available if using SSH
+    mysqldump_options: "--add-drop-table --ignore-table={DB_NAME}.wp_wfVulnScanners --ignore-table={DB_NAME}.wp_wfThrottleLog --ignore-table={DB_NAME}.wp_wfStatus --ignore-table={DB_NAME}.wp_wfSNIPCache --ignore-table={DB_NAME}.wp_wfScanners --ignore-table={DB_NAME}.wp_wfReverseCache --ignore-table={DB_NAME}.wp_wfNet404s --ignore-table={DB_NAME}.wp_wfLogins --ignore-table={DB_NAME}.wp_wfLocs --ignore-table={DB_NAME}.wp_wfLockedOut --ignore-table={DB_NAME}.wp_wfLeechers --ignore-table={DB_NAME}.wp_wfKnownFileList --ignore-table={DB_NAME}.wp_wfIssues --ignore-table={DB_NAME}.wp_wfHoover --ignore-table={DB_NAME}.wp_wfHits --ignore-table={DB_NAME}.wp_wfFileMods --ignore-table={DB_NAME}.wp_wfCrawlers --ignore-table={DB_NAME}.wp_wfConfig --ignore-table={DB_NAME}.wp_wfBlocksAdv --ignore-table={DB_NAME}.wp_wfBlocks --ignore-table={DB_NAME}.wp_wfBlockedIPLog --ignore-table={DB_NAME}.wp_wfBadLeechers"
+
+  exclude:
+    - ".tags"
+    - ".git/"
+    - ".gitignore"
+    - ".sass-cache/"
+    - "node_modules/"
+    - "bin/"
+    - "tmp/*"
+    - "Gemfile*"
+    - "Movefile"
+    - "Movefile.yml"
+    - "Movefile.yaml"
+    - "movefile"
+    - "movefile.yml"
+    - "movefile.yaml"
+    - "wp-config.php"
+    - "wp-content/*.sql"
+    - ".htaccess"
+    #ignore the W3 Total Cache files
+    - "wp-content/advanced-cache.php"
+    - "wp-content/db.php"
+    - "wp-content/object-cache.php"
+    - "wp-content/cache/"
+    #hide the theme if handling via git
+    - "wp-content/themes/{THEMENAME}/"
+    #hide development plugins
+    - "wp-content/plugins/simply-show-hooks/"
+    - "wp-content/plugins/show-current-template/"
+
+  ssh:
+    host: "{host ip/domain}"
+    user: "{user}"
+    rsync_options: "--no-perms --no-owner --no-group --no-times --checksum"

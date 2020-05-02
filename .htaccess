@@ -1,0 +1,6 @@
+Options -Indexes
+RedirectMatch 404 /\.git
+
+SetEnv WP_ENV 'local'
+# SetEnv WP_ENV 'development'
+# SetEnv WP_ENV 'production'
