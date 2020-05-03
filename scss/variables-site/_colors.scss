@@ -1,3 +1,4 @@
+/* Colors by usage  */
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
@@ -18,3 +19,30 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+/* Named Colors */
+$yellow: #cea670;
+$gray: #313131;
+$light-gray: #f2f2f2;
+$blue: #1e83a4;
+
+/* Gutenberg color options */
+// -- see editor-color-palette in underscores-functions.php
+$colors: ( blue, $blue ),
+  ( yellow, $yellow ),
+  ( light-green, $light-green ),
+  ( gray, $gray );
+
+/* Color Options
+--------------------------------------------- */
+
+@each $name, $color in $colors {
+
+  .has-#{$name}-color {
+    color: $color;
+  }
+
+  .has-#{$name}-background-color {
+    background-color: $color;
+  }
+}

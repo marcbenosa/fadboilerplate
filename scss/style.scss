@@ -18,12 +18,20 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+
+Compiles to /style.css
+e.g.
+node-sass -w scss/main.scss style.css --source-map=true --output-style=compressed
+
 */
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Normalize
+# Variables
+# Mixins
+# Bourbon https://www.bourbon.io/docs/latest/
+# Normalize https://necolas.github.io/normalize.css/
 # Typography
 # Elements
 # Forms
@@ -40,9 +48,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
+
 --------------------------------------------------------------*/
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
+@import "bourbon/bourbon";
 
 /*--------------------------------------------------------------
 # Normalize
@@ -98,3 +108,23 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+/***********************************************************************
+Main Styles and Page Styles
+***********************************************************************/
+@import "pages/header";
+@import "pages/footer";
+@import "pages/default-page";
+@import "pages/front-page";
+@import "pages/blog-archive";
+@import "pages/blog-single";
+
+/***********************************************************************
+Custom Post Type Styles
+***********************************************************************/
+
+
+/***********************************************************************
+Block Styles
+***********************************************************************/
+@import "../blocks/blocks";

@@ -9,3 +9,240 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+/***********************************************************************
+02 - Mix-ins and Utility Classes
+***********************************************************************/
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+} //@include vertical-align
+
+@mixin transform-scale($x:1, $y:1) {
+  -webkit-transform: scale($x, $y);
+  -moz-transform: scale($x, $y);
+  -o-transform: scale($x, $y);
+  -ms-transform: scale($x, $y);
+  transform: scale($x, $y);
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+.bg-image-cover {
+  @include prefixer(background-size, cover, webkit moz ms o spec);
+  @include prefixer(background-position, center center, webkit moz ms o spec);
+  @include transition(all, .6s, cubic-bezier(.19, 1, .22, 1));
+}
+
+.bg-image-cover-padded {
+  @include prefixer(background-size, cover, webkit moz ms o spec);
+  @include prefixer(background-position, center center, webkit moz ms o spec);
+  @include transition(all, .6s, cubic-bezier(.19, 1, .22, 1));
+
+  &:after{
+    /*  set the padding top % to match image aspect ratio */
+    padding-top: 100%;
+    display: block;
+    content: '';
+  }
+}
+
+@mixin center-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform( translate(-50%, -50%) );
+}
+
+@mixin overlay {
+  &:before {
+    background-color: rgba(23,23,23, 0.5);
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+@mixin flex-center {
+  @include display(flex);
+  @include flex-direction(row);
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+.gutter {
+  padding: 8rem 0;
+  @media (max-width: $tablet-size) {
+    padding: 5rem 0;
+  }
+}
+
+.center {
+  @include vertical-align;
+}
+
+.fill-container {
+  width: 100%;
+  height: 100%;
+}
+
+.margin-center {
+  margin: auto;
+}
+
+.alternate-initial-on {
+  display: block;
+  @media (max-width: $phone-size) {
+    display: none;
+  }
+}
+
+.alternate-initial-off {
+  display: none;
+  @media (max-width: $phone-size) {
+    display: block;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.col-sm-hide,
+.sm-hide {
+  @media (max-width: $tablet-size) {
+    display: none;
+  }
+}
+
+.col-sm-show,
+.sm-show {
+  display: none;
+  @media (max-width: $phone-size) {
+    display: block;
+  }
+}
+
+.col-xs-hide,
+.xs-hide {
+  @media (max-width: $phone-size) {
+    display: none;
+  }
+}
+
+.col-xs-show,
+.xs-show {
+  display: none;
+  @media (max-width: $phone-size) {
+    display: block;
+  }
+}
+
+.table-cell-center {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#media-query-detector {
+  display: none;
+  height: 1px;
+  @media (min-width: $tablet-size) {
+    height: 2px;
+  }
+  @media (min-width: $desktop-size) {
+    height: 3px;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.cursor-default {
+  cursor: auto;
+  pointer-events: none;
+}
+
+.slick-dots {
+  font-size: 0;
+  margin: 0;
+  z-index: 29;
+  position: static;
+  li {
+    width: auto;
+    height: auto;
+    margin: 0 8px;
+    button {
+      border: 0;
+      background-color: #dfdfdf;
+      padding: 0;
+      height: 15px;
+      width: 15px;
+      border-radius:50%;
+      &:before {
+        display: none;
+      }
+    }
+    &.slick-active {
+      button {
+        background-color: $blue;
+      }
+    }
+  }
+}
+
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+.css-triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-bottom: 5px solid black;
+}
+
+.css-triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-top: 20px solid #f00;
+}
+
+.css-triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+
+  border-left: 60px solid green;
+}
+
+.css-triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+
+  border-right:10px solid blue;
+}

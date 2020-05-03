@@ -1,0 +1,111 @@
+/**
+ * Ninja Forms Resets
+ */
+
+.nf-form-cont {
+  .nf-form-layout {
+    .five-sixths,
+    .four-sixths,
+    .one-fourth,
+    .one-half,
+    .one-sixth,
+    .one-third,
+    .three-fourths,
+    .three-sixths,
+    .two-fourths,
+    .two-sixths,
+    .two-thirds,
+    .textarea-container {
+        margin-left: 0 !important;
+        padding: 0 10px 3rem;
+    }
+
+    .one-half,
+      .three-sixths,
+      .two-fourths {
+          width: 50%;
+      }
+
+      .one-third,
+      .two-sixths {
+          width: 33.333333%;
+      }
+
+      .four-sixths,
+      .two-thirds {
+          width: 66%;
+      }
+
+      .one-fourth {
+          width: 25%;
+      }
+
+      .three-fourths {
+          width: 75%;
+      }
+
+      .one-sixth {
+          width: 15%;
+      }
+
+      .five-sixths {
+          width: 85%;
+      }
+
+    .nf-form-title,
+    .nf-form-fields-required {
+      display: none;
+    }
+
+    .liststate-container {
+
+      select {
+          height: 28px;
+          background: none;
+      }
+    }
+
+    input,
+    select,
+    textarea {
+      border: 1px solid transparent;
+      border-radius: 5px;
+      color: black;
+      padding: 0.75rem 1rem;
+      @include placeholder {
+        color: black;
+      }
+    }
+
+    textarea {
+      height: 4rem;
+    }
+
+    .nf-error {
+      input, textarea {
+        border-color: red;
+      }
+    }
+
+    .nf-error-msg {
+      display: none;
+    }
+
+    @media (max-width: 922px) {
+      .five-sixths,
+      .four-sixths,
+      .one-fourth,
+      .one-half,
+      .one-sixth,
+      .one-third,
+      .three-fourths,
+      .three-sixths,
+      .two-fourths,
+      .two-sixths,
+      .two-thirds,
+      .textarea-container {
+          width: 100%;
+      }
+    }
+  }
+}

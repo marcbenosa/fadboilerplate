@@ -138,6 +138,20 @@ Large devices (desktops, 992px and up)
 Extra large devices (large desktops, 1200px and up)
 `@media (min-width: 1200px) { ... }`
 
+##Theme Options Settings
+Typically set up in an ACF Theme options area.
+- company_logo
+- footer_logo
+- phone
+- email
+- facebook_url
+- instagram_url
+- twitter_url
+- linkedin_url
+- form_shortcode
+- menu
+Used in header.php, footer.php, etc.
+
 
 ---
 #TODO
@@ -147,7 +161,7 @@ Extra large devices (large desktops, 1200px and up)
 - Look into using transients to store menu results, mentioned in the readme here: (https://github.com/wp-bootstrap/wp-bootstrap-navwalker)
 - Build process
 - Include prefixer in build process https://github.com/postcss/autoprefixer
-- 
+- Include [Bourbon](https://github.com/thoughtbot/bourbon#installation) if mixins are helpful
 
 #Thoughts for the future
 - Bootstrap Gutenberg Blocks. Not implemented yet. https://github.com/liip/bootstrap-blocks-wordpress-plugin

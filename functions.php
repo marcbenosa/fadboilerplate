@@ -139,3 +139,13 @@ if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalke
     require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 }
 
+/**
+ * Social Media Integrations
+ */
+// require_once(get_template_directory() . '/inc/social-media-pulldown.php');
+// require_once(get_template_directory() . '/inc/instagram-api.php');
+
+/**
+ * Gutenberg Blocks using Advanced Custom Fields (ACF)
+ */
+require_once(get_template_directory() . '/blocks/acf-blocks.php');

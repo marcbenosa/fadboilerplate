@@ -28,6 +28,12 @@ select {
 	border: 1px solid $color__border-input;
 }
 
+input {
+  font-size: $default-size;
+}
+
 textarea {
-	width: 100%;
+  font-size: $default-size;
+  resize: none;
+  width: 100%;
 }

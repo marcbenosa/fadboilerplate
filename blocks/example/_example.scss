@@ -1,0 +1,28 @@
+/**
+ * Example Block
+ * Styles for custom Gutenerg blocks.
+ * Mobile first styling means that default styles are for the xs size
+ *   and overrides are for larger sizes.
+ */
+
+.block-template {
+
+  &__container {
+  }
+
+}
+
+/**
+ * Media Queries
+ */
+@media (min-width: $phone-size) {
+
+}
+@media (min-width: $tablet-size) {
+
+}
+@media (min-width: $desktop-size) {
+
+}
+
+
