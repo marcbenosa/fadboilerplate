@@ -122,33 +122,33 @@ Page-specific templates should have:
 *  and a content-{name}.php content file
 *  e.g. page-about.php and content-about.php
 *  Reusable sections of the site should be in the /partials folders
-    *  and named partial-{name-of-feature-or-section}.php
+	*  and named partial-{name-of-feature-or-section}.php
 
 ## Block Folder Structure
 This theme uses Advanced Custom Fields (ACF) to register custom blocks
 In the /blocks directory you will find
 *  Blocks
-    *  `acf-blocks.php` Register blocks, change wrappers around core blocks
-    *  `_blocks.php` Main style importer for blocks
-    *  Block Subfolders
-        *  `example-block.php` main template file for the example block
-        *  `_example.scss` main styles file for the example block
+	*  `acf-blocks.php` Register blocks, change wrappers around core blocks
+	*  `_blocks.php` Main style importer for blocks
+	*  Block Subfolders
+		*  `example-block.php` main template file for the example block
+		*  `_example.scss` main styles file for the example block
 
 ## Keep This Readme up to date 
- - Update the theme's readme.md with pertinent information as you go.
+*  Update the theme's readme.md with pertinent information as you go.
 
 ## Mobile First Styling
 We will use Bootstrap 4 mobile-first styling breakpoints
 *  Extra small devices (portrait phones, less than 576px)
-    *  No media query for `xs` since this is the default in Bootstrap
+	*  No media query for `xs` since this is the default in Bootstrap
 *  Small devices (landscape phones, 576px and up)
-    *  `@media (min-width: 576px) { ... }`
+	*  `@media (min-width: 576px) { ... }`
 *  Medium devices (tablets, 768px and up)
-    *  `@media (min-width: 768px) { ... }`
+	*  `@media (min-width: 768px) { ... }`
 *  Large devices (desktops, 992px and up)
-    *  `@media (min-width: 992px) { ... }`
+	*  `@media (min-width: 992px) { ... }`
 *  Extra large devices (large desktops, 1200px and up)
-    *  `@media (min-width: 1200px) { ... }`
+	*  `@media (min-width: 1200px) { ... }`
 
 ## Theme Options Settings
 Typically set up in an ACF Theme options area.
