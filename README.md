@@ -90,6 +90,7 @@ If you're developing on Mac/Linux
 
 ## Typical Plugins
 These are typically installed by wp-cli and in wp_init.sh
+
 *  Advanced Custom Fields
 *  BackWPUp
 *  Duplicate-Post
@@ -107,51 +108,58 @@ These are typically installed by wp-cli and in wp_init.sh
 *  wordpress-importer
 
 ## Typical Development Plugins
+
 *  aryo-activity-log
 *  bulk-block-converter
 *  show-current-template
 *  simply-show-hooks
 
 ## Must-Use Plugins
+
 *  disable-plugins-in-development.php (In the /helpers directory)
 
 # Practices to follow
 ## Page-specific templates
 Page-specific templates should have
+
 *  a `page-{name}.php` main template file
 *  and a `ontent-{name}.php` content file
 *  e.g. `page-about.php` and `content-about.php`
 *  Reusable sections of the site should be in the `/partials` folders
-	*  and named `partial-{name-of-feature-or-section}.php`
+    *  and named `partial-{name-of-feature-or-section}.php`
 
 ## Block Folder Structure
 This theme uses Advanced Custom Fields (ACF) to register custom blocks
 In the /blocks directory you will find
-*  Blocks
-	*  `acf-blocks.php` Register blocks, change wrappers around core blocks
-	*  `_blocks.php` Main style importer for blocks
-	*  Block Subfolders
-		*  `example-block.php` main template file for the example block
-		*  `_example.scss` main styles file for the example block
 
-## Keep This Readme up to date 
+*  Blocks
+    *  `acf-blocks.php` Register blocks, change wrappers around core blocks
+    *  `_blocks.php` Main style importer for blocks
+    *  Block Subfolders
+        *  `example-block.php` main template file for the example block
+        *  `_example.scss` main styles file for the example block
+
+## Keep This Readme up to date
+
 *  Update the theme's readme.md with pertinent information as you go.
 
 ## Mobile First Styling
 We will use Bootstrap 4 mobile-first styling breakpoints
+
 *  Extra small devices (portrait phones, less than 576px)
-	*  No media query for `xs` since this is the default in Bootstrap
+    *  No media query for `xs` since this is the default in Bootstrap
 *  Small devices (landscape phones, 576px and up)
-	*  `@media (min-width: 576px) { ... }`
+    *  `@media (min-width: 576px) { ... }`
 *  Medium devices (tablets, 768px and up)
-	*  `@media (min-width: 768px) { ... }`
+    *  `@media (min-width: 768px) { ... }`
 *  Large devices (desktops, 992px and up)
-	*  `@media (min-width: 992px) { ... }`
+    *  `@media (min-width: 992px) { ... }`
 *  Extra large devices (large desktops, 1200px and up)
-	*  `@media (min-width: 1200px) { ... }`
+    *  `@media (min-width: 1200px) { ... }`
 
 ## Theme Options Settings
 Typically set up in an ACF Theme options area.
+
 *  company_logo
 *  footer_logo
 *  phone
@@ -166,6 +174,7 @@ Used in header.php, footer.php, etc.
 
 ---
 # TODO
+
 *  Update and streamline renameall.py
 *  Add variables to wp_init.sh 
 *  Add ability to install pro plugins hosted by FA to wp_init.sh
@@ -175,6 +184,7 @@ Used in header.php, footer.php, etc.
 *  Include [Bourbon](https://github.com/thoughtbot/bourbon#installation) if mixins are helpful
 
 # Thoughts for the future
+
 *  Bootstrap Gutenberg Blocks. Not implemented yet. https://github.com/liip/bootstrap-blocks-wordpress-plugin
 *  [Blocklab](https://getblocklab.com/) potentially instead of ACF for developing blocks.
 *  [UnderStap](https://understrap.com/) integrates Bootstrap into Underscores.me, WooCommerce, and Blocks.
