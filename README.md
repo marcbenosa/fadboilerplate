@@ -20,7 +20,7 @@ git config --global core.autocrlf input
 
  - [Mobile_Detect.php](http://mobiledetect.net)
  - [Boostrap 4](http://getbootstrap.com/)
- <!-- - [Bourbon.io](http://bourbon.io/) -->
+ - [Bourbon.io](http://bourbon.io/)
  - [Slick Slider](https://kenwheeler.github.io/slick/)
  - [TweenMax](https://greensock.com/tweenmax/)
  - [GASP](https://greensock.com/get-started/#loading-gsap)
@@ -28,7 +28,6 @@ git config --global core.autocrlf input
  - [Jquery Match Height](https://github.com/liabru/jquery-match-height)
  - [Popper.js](https://popper.js.org/)
  - [Respond.js](https://github.com/scottjehl/Respond)
-
 
 ##Recommendations
 
@@ -50,12 +49,14 @@ git config --global core.autocrlf input
  - Run helpers/wp_init.sh 
 
 ##Theme Folder Structure
-**fadboilerplatetheme**
+**fadboilerplate**
  
  - **/acf-json**
    Stores JSON files for ACF fields. [ACF Local JSON](https://www.advancedcustomfields.com/resources/local-json/)
  - **/bin**
    bundle directory from Underscores.me
+ - **/blocks**
+   directory for handling Gutenberg blocks
  - **/helpers**
    scripts meant to help get this boilerplate setup
  - **/img**
@@ -103,12 +104,17 @@ These are typically installed by wp-cli and in wp_init.sh
  - WordFence
  - Monster Analtyics Pro
  - Easysmtp
+ - redirection
+ - wordpress-importer
 
 ##Typical Development Plugins
- - 
+ - aryo-activity-log
+ - bulk-block-converter
+ - show-current-template
+ - simply-show-hooks
 
 ##Must-Use Plugins
- - 
+ - disable-plugins-in-development.php (In the /helpers directory)
 
 #Practices to follow
 ##Page-specific templates
@@ -120,23 +126,30 @@ Page-specific templates should have:
    - and named partial-{name-of-feature-or-section}.php
 
 ##Block Folder Structure
-
+This theme uses Advanced Custom Fields (ACF) to register custom blocks
+In the /blocks directory you will find
+- Blocks
+    - `acf-blocks.php` -- Register blocks, change wrappers around core blocks
+    - `_blocks.php` -- Main style importer for blocks
+    - Block Subfolders
+        - `example-block.php` -- main template file for the example block
+        - `_example.scss`   -- main styles file for the example block
 
 ##Keep This Readme up to date 
  - Update the theme's readme.md with pertinent information as you go.
 
 ##Mobile First Styling
 We will use Bootstrap 4 mobile-first styling breakpoints:
-Extra small devices (portrait phones, less than 576px)
-No media query for `xs` since this is the default in Bootstrap
-Small devices (landscape phones, 576px and up)
-`@media (min-width: 576px) { ... }`
-Medium devices (tablets, 768px and up)
-`@media (min-width: 768px) { ... }`
-Large devices (desktops, 992px and up)
-`@media (min-width: 992px) { ... }`
-Extra large devices (large desktops, 1200px and up)
-`@media (min-width: 1200px) { ... }`
+- Extra small devices (portrait phones, less than 576px)
+    - No media query for `xs` since this is the default in Bootstrap
+- Small devices (landscape phones, 576px and up)
+    - `@media (min-width: 576px) { ... }`
+- Medium devices (tablets, 768px and up)
+    - `@media (min-width: 768px) { ... }`
+- Large devices (desktops, 992px and up)
+    - `@media (min-width: 992px) { ... }`
+- Extra large devices (large desktops, 1200px and up)
+    - `@media (min-width: 1200px) { ... }`
 
 ##Theme Options Settings
 Typically set up in an ACF Theme options area.
@@ -151,7 +164,6 @@ Typically set up in an ACF Theme options area.
 - form_shortcode
 - menu
 Used in header.php, footer.php, etc.
-
 
 ---
 #TODO
@@ -170,7 +182,6 @@ Used in header.php, footer.php, etc.
 
 
 ---
-
 
 ###README from Underscores.me
 ---
