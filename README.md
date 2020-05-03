@@ -138,7 +138,7 @@ In the /blocks directory you will find
  - Update the theme's readme.md with pertinent information as you go.
 
 ## Mobile First Styling
-We will use Bootstrap 4 mobile-first styling breakpoints:
+We will use Bootstrap 4 mobile-first styling breakpoints
 *  Extra small devices (portrait phones, less than 576px)
     *  No media query for `xs` since this is the default in Bootstrap
 *  Small devices (landscape phones, 576px and up)
