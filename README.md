@@ -117,12 +117,12 @@ These are typically installed by wp-cli and in wp_init.sh
 
 # Practices to follow
 ## Page-specific templates
-Page-specific templates should have:
-*  a page-{name}.php main template file
-*  and a content-{name}.php content file
-*  e.g. page-about.php and content-about.php
-*  Reusable sections of the site should be in the /partials folders
-	*  and named partial-{name-of-feature-or-section}.php
+Page-specific templates should have
+*  a `page-{name}.php` main template file
+*  and a `ontent-{name}.php` content file
+*  e.g. `page-about.php` and `content-about.php`
+*  Reusable sections of the site should be in the `/partials` folders
+	*  and named `partial-{name-of-feature-or-section}.php`
 
 ## Block Folder Structure
 This theme uses Advanced Custom Fields (ACF) to register custom blocks
@@ -169,7 +169,7 @@ Used in header.php, footer.php, etc.
 *  Update and streamline renameall.py
 *  Add variables to wp_init.sh 
 *  Add ability to install pro plugins hosted by FA to wp_init.sh
-*  Look into using transients to store menu results, mentioned in the readme here: (https://github.com/wp-bootstrap/wp-bootstrap-navwalker)
+*  Look into using transients to store menu results, mentioned in the readme here (https://github.com/wp-bootstrap/wp-bootstrap-navwalker)
 *  Build process
 *  Include prefixer in build process https://github.com/postcss/autoprefixer
 *  Include [Bourbon](https://github.com/thoughtbot/bourbon#installation) if mixins are helpful
@@ -187,7 +187,7 @@ Used in header.php, footer.php, etc.
 
 Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here
 
 *  A modern workflow with a pre-made command-line interface to turn your project into a more pleasant experience.
 *  A just right amount of lean, well-commented, modern, HTML5 templates.
