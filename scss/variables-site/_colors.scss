@@ -29,20 +29,21 @@ $blue: #1e83a4;
 /* Gutenberg color options */
 // -- see editor-color-palette in underscores-functions.php
 $colors: ( blue, $blue ),
-  ( yellow, $yellow ),
-  ( light-green, $light-green ),
-  ( gray, $gray );
+	( yellow, $yellow ),
+	( light-gray, $light-gray ),
+	( gray, $gray ),
+	( blue, $blue );
 
 /* Color Options
 --------------------------------------------- */
 
 @each $name, $color in $colors {
 
-  .has-#{$name}-color {
-    color: $color;
-  }
+	.has-#{$name}-color {
+		color: $color;
+	}
 
-  .has-#{$name}-background-color {
-    background-color: $color;
-  }
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
 }

@@ -3,106 +3,125 @@ FOOTER
 ***********************************************************************/
 
 .site-footer {
-  background-color: black;
-  color: white;
-  padding: 4rem 1rem 2rem;
-  a {
-    color: white;
-    &:hover {
-      color: $blue;
-    }
-  }
-  
-  .prefooter {
-    padding-bottom: 2rem;
-    .heading {
-      font: 700 1.5rem $font-default;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-    .contact {
-      a {
-        display: block;
-      }
-    }
-    .social {
-      margin-top: 1.25rem;
-      a {
-        border-radius: 50%;
-        border: 1px solid white;
-        color: white;
-        display: inline-block;
-        font-size: 1.15rem;
-        height: 35px;
-        width: 35px;
-        margin: 0 3px;
-        position: relative;
-        &:before {
-          content: '';
-          background: $blue;
-          border-radius: 50%;
-          height: 100%;
-          width: 100%;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          opacity: 0;
-          position: absolute;
-          @include transition(all, ease-in-out, 0.3s);
-          @include transform( scale(0) );
-        }
+	background-color: black;
+	color: white;
+	padding: 4rem 1rem 2rem;
 
-        &:first-child {
-          margin-left: 0;
-        }
+	a {
+		color: white;
 
-        i {
-          @include center-item;
-           -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-        }
+		&:hover {
+			color: $blue;
+		}
+	}
 
-        &:hover {
-          border-color: $blue;
-          &:before {
-            opacity: 1;
-            @include transform( scale(1) );
-          }
-        }
+	.prefooter {
+		padding-bottom: 2rem;
 
-      }
-    }
-    &-form {
-      .nf-form-cont {
-        margin: 0 auto;
-        max-width: 360px;
-        width: 100%;
-      }
-      .nf-field-label {
-        display: none;
-      }
-      .nf-field-container {
-        margin-bottom: 0;
-      }
-    }
-  }
+		.heading {
+			font: 700 1.5rem $font-default;
+			text-transform: uppercase;
+			margin-bottom: 1.5rem;
+		}
 
-  .footer {
-    font-size: 1rem;
-    hr {
+		.contact {
 
-    }
-    &-menu {
-      text-align: right;
-      a {
-        position: relative;
-        border-left: 1px solid #ccc;
-        padding: 0 7px;
-        &:first-child {
-          border-left: 0;
-        }
-      }
-    }
-  }
+			a {
+				display: block;
+			}
+		}
+
+		.social {
+			margin-top: 1.25rem;
+
+			a {
+				border-radius: 50%;
+				border: 1px solid white;
+				color: white;
+				display: inline-block;
+				font-size: 1.15rem;
+				height: 35px;
+				width: 35px;
+				margin: 0 3px;
+				position: relative;
+
+				&::before {
+					content: "";
+					background: $blue;
+					border-radius: 50%;
+					height: 100%;
+					width: 100%;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					opacity: 0;
+					position: absolute;
+
+					@include transition(all, ease-in-out, 0.3s);
+					transform: scale(0);
+				}
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				i {
+
+					@include center-item;
+					-webkit-backface-visibility: hidden;
+					backface-visibility: hidden;
+				}
+
+				&:hover {
+					border-color: $blue;
+
+					&::before {
+						opacity: 1;
+						transform: scale(1);
+					}
+				}
+
+			}
+		}
+
+		&-form {
+
+			.nf-form-cont {
+				margin: 0 auto;
+				max-width: 360px;
+				width: 100%;
+			}
+
+			.nf-field-label {
+				display: none;
+			}
+
+			.nf-field-container {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.footer {
+		font-size: 1rem;
+
+		hr {
+
+		}
+
+		&-menu {
+			text-align: right;
+
+			a {
+				position: relative;
+				border-left: 1px solid #ccc;
+				padding: 0 7px;
+
+				&:first-child {
+					border-left: 0;
+				}
+			}
+		}
+	}
 }

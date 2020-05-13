@@ -1,19 +1,20 @@
 html {
-  font: 100%;
-  font-size: $base-font-size;
-  overflow: auto;
-  @media (max-width: $phone-size) {
-    font-size: $base-font-size-mobile;
-  }
+	font: 100%;
+	font-size: $base-font-size;
+	overflow: auto;
+
+	@media (max-width: $phone-size) {
+		font-size: $base-font-size-mobile;
+	}
 }
 
 body {
-  background: #fff;
-  font: 100%;
-  font-size: $default-size;
-  font-family: $font-default;
-  font-weight: 400;
-  position: relative;
+	background: #fff;
+	font: 100%;
+	font-size: $default-size;
+	font-family: $font-default;
+	font-weight: 400;
+	position: relative;
 }
 
 body,

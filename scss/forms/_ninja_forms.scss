@@ -3,109 +3,115 @@
  */
 
 .nf-form-cont {
-  .nf-form-layout {
-    .five-sixths,
-    .four-sixths,
-    .one-fourth,
-    .one-half,
-    .one-sixth,
-    .one-third,
-    .three-fourths,
-    .three-sixths,
-    .two-fourths,
-    .two-sixths,
-    .two-thirds,
-    .textarea-container {
-        margin-left: 0 !important;
-        padding: 0 10px 3rem;
-    }
 
-    .one-half,
-      .three-sixths,
-      .two-fourths {
-          width: 50%;
-      }
+	.nf-form-layout {
 
-      .one-third,
-      .two-sixths {
-          width: 33.333333%;
-      }
+		.five-sixths,
+		.four-sixths,
+		.one-fourth,
+		.one-half,
+		.one-sixth,
+		.one-third,
+		.three-fourths,
+		.three-sixths,
+		.two-fourths,
+		.two-sixths,
+		.two-thirds,
+		.textarea-container {
+			margin-left: 0 !important;
+			padding: 0 10px 3rem;
+		}
 
-      .four-sixths,
-      .two-thirds {
-          width: 66%;
-      }
+		.one-half,
+		.three-sixths,
+		.two-fourths {
+			width: 50%;
+		}
 
-      .one-fourth {
-          width: 25%;
-      }
+		.one-third,
+		.two-sixths {
+			width: 33.333333%;
+		}
 
-      .three-fourths {
-          width: 75%;
-      }
+		.four-sixths,
+		.two-thirds {
+			width: 66%;
+		}
 
-      .one-sixth {
-          width: 15%;
-      }
+		.one-fourth {
+			width: 25%;
+		}
 
-      .five-sixths {
-          width: 85%;
-      }
+		.three-fourths {
+			width: 75%;
+		}
 
-    .nf-form-title,
-    .nf-form-fields-required {
-      display: none;
-    }
+		.one-sixth {
+			width: 15%;
+		}
 
-    .liststate-container {
+		.five-sixths {
+			width: 85%;
+		}
 
-      select {
-          height: 28px;
-          background: none;
-      }
-    }
+		.nf-form-title,
+		.nf-form-fields-required {
+			display: none;
+		}
 
-    input,
-    select,
-    textarea {
-      border: 1px solid transparent;
-      border-radius: 5px;
-      color: black;
-      padding: 0.75rem 1rem;
-      @include placeholder {
-        color: black;
-      }
-    }
+		.liststate-container {
 
-    textarea {
-      height: 4rem;
-    }
+			select {
+				height: 28px;
+				background: none;
+			}
+		}
 
-    .nf-error {
-      input, textarea {
-        border-color: red;
-      }
-    }
+		input,
+		select,
+		textarea {
+			border: 1px solid transparent;
+			border-radius: 5px;
+			color: black;
+			padding: 0.75rem 1rem;
 
-    .nf-error-msg {
-      display: none;
-    }
+			&:placeholder {
+				color: black;
+			}
+		}
 
-    @media (max-width: 922px) {
-      .five-sixths,
-      .four-sixths,
-      .one-fourth,
-      .one-half,
-      .one-sixth,
-      .one-third,
-      .three-fourths,
-      .three-sixths,
-      .two-fourths,
-      .two-sixths,
-      .two-thirds,
-      .textarea-container {
-          width: 100%;
-      }
-    }
-  }
+		textarea {
+			height: 4rem;
+		}
+
+		.nf-error {
+
+			input,
+			textarea {
+				border-color: red;
+			}
+		}
+
+		.nf-error-msg {
+			display: none;
+		}
+
+		@media (max-width: 922px) {
+
+			.five-sixths,
+			.four-sixths,
+			.one-fourth,
+			.one-half,
+			.one-sixth,
+			.one-third,
+			.three-fourths,
+			.three-sixths,
+			.two-fourths,
+			.two-sixths,
+			.two-thirds,
+			.textarea-container {
+				width: 100%;
+			}
+		}
+	}
 }

@@ -8,7 +8,7 @@ If you're developing on Windows
 If you're developing on Mac/Linux
 `git config --global core.autocrlf input`
 
-## Requires 
+## Requires
 
 *  [WP CLI](http://wp-cli.org/)
 *  LAMP Stack
@@ -39,17 +39,21 @@ If you're developing on Mac/Linux
 *  Pull down WordPress core using wp cli
    `wp core download`
 *  Clone the repo into the wp-content/themes/ folder
-*  Remove the git folder 
+*  Remove the git folder
 *  Rename the theme folder
 *  Edit helpers/renameall.py to handle all the file and filename renames
-*  Run helpers/renameall.py 
+*  Run helpers/renameall.py
 *  Edit wp-content/themes/mytheme/wp-config-local.php to match the site URL and database credentials
 *  Edit helpers/wp_init.sh with your needs and credentials
-*  Run helpers/wp_init.sh 
+*  Run helpers/wp_init.sh
+
+## To Run - beta
+*We are still working on the build & run process - this may not behave 100% as expected*
+* `npm run develop` will run the scss linter, compiler, and autoprefixer, in that order, then will watch for changes.
 
 ## Theme Folder Structure
 **fadboilerplate**
- 
+
 *  **/acf-json**
    Stores JSON files for ACF fields. [ACF Local JSON](https://www.advancedcustomfields.com/resources/local-json/)
 *  **/bin**
@@ -77,7 +81,7 @@ If you're developing on Mac/Linux
 *  **/scss**
    SCSS files for styles.
    To compile run
-   ```$: cd {theme-root}; sass --watch scss:css```
+   `$: cd {theme-root}; sass --watch scss:css`
 *  **/shortcodes**
    Files for WordPress shortcodes.
 *  **/snippets**
@@ -176,12 +180,10 @@ Used in header.php, footer.php, etc.
 # TODO
 
 *  Update and streamline renameall.py
-*  Add variables to wp_init.sh 
+*  Add variables to wp_init.sh
 *  Add ability to install pro plugins hosted by FA to wp_init.sh
 *  Look into using transients to store menu results, mentioned in the readme here (https://github.com/wp-bootstrap/wp-bootstrap-navwalker)
 *  Build process
-*  Include prefixer in build process https://github.com/postcss/autoprefixer
-*  Include [Bourbon](https://github.com/thoughtbot/bourbon#installation) if mixins are helpful
 
 # Thoughts for the future
 

@@ -1,15 +1,15 @@
 p {
-  line-height: 2.25rem;
-  margin: 0 0 1em;
-  font-family: $font-default;
+	line-height: 2.25rem;
+	margin: 0 0 1em;
+	font-family: $font-default;
 }
 
 p.subtitle {
-  font-size: $p-subtitle-size;
+	font-size: $p-subtitle-size;
 }
 
 p.large {
-  font-size: $h4-size;
+	font-size: $h4-size;
 }
 
 dfn,
@@ -20,16 +20,17 @@ i {
 }
 
 blockquote {
-  width: 75%;
-  margin: 1em auto;
-  padding: 0.5em 10px;
-  border-left: none;
-  text-align: center;
-  p {
-    display: inline;
-    text-align: center;
-    font-size: $default-size + .25rem;
-  }
+	width: 75%;
+	margin: 1em auto;
+	padding: 0.5em 10px;
+	border-left: none;
+	text-align: center;
+
+	p {
+		display: inline;
+		text-align: center;
+		font-size: $default-size + 0.25rem;
+	}
 }
 
 address {
@@ -72,10 +73,10 @@ big {
 }
 
 .screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
 }
 

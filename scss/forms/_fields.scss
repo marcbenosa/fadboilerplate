@@ -29,11 +29,11 @@ select {
 }
 
 input {
-  font-size: $default-size;
+	font-size: $default-size;
 }
 
 textarea {
-  font-size: $default-size;
-  resize: none;
-  width: 100%;
+	font-size: $default-size;
+	resize: none;
+	width: 100%;
 }

@@ -22,48 +22,51 @@ input[type="submit"] {
 
 button,
 .btn {
-  font-size: $button-size;
+	font-size: $button-size;
 }
 
 /**
  * Buttons
  */
 .cta-button {
-  margin-top: 3rem;
-  @media (max-width: $tablet-size) {
-    margin-top: 2rem;
-  }
+	margin-top: 3rem;
+
+	@media (max-width: $tablet-size) {
+		margin-top: 2rem;
+	}
 }
 
-.fadboilerplate-button,
-.fadboilerplate-btn {
-  padding: 0.75rem 1.5rem 0.55rem;
-  background-color: $blue;
-  color: white;
-  text-transform: uppercase;
-  font-size: $default-size;
-  border-radius: 5px;
-  text-align: center;
-  display: inline-block;
-  @include transition(all, .3s, ease);
-  margin-top: 1rem;
-  border: none;
-  box-shadow: none;
-  text-shadow: none;
+.milesscientific-button,
+.milesscientific-btn {
+	padding: 0.75rem 1.5rem 0.55rem;
+	background-color: $blue;
+	color: white;
+	text-transform: uppercase;
+	font-size: $default-size;
+	border-radius: 5px;
+	text-align: center;
+	display: inline-block;
 
-  &:hover {
-    background-color: lighten($blue, 5%);
-    color: white;
-  }
+	@include transition(all, 0.3s, ease);
+	margin-top: 1rem;
+	border: none;
+	box-shadow: none;
+	text-shadow: none;
 
-  &:focus, &:active {
-    color: white;
-  }
+	&:hover {
+		background-color: lighten($blue, 5%);
+		color: white;
+	}
 
-  &.nf-element {
-    border: none;
-    box-shadow: none;
-    text-shadow: none;
-    font-size: 1em;
-  }
+	&:focus,
+	&:active {
+		color: white;
+	}
+
+	&.nf-element {
+		border: none;
+		box-shadow: none;
+		text-shadow: none;
+		font-size: 1em;
+	}
 }
