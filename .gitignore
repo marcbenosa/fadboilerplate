@@ -44,7 +44,7 @@ Thumbs.db
 
 # ignore log files and databases
 *.log
-*.sql 
+*.sql
 *.sqlite
 
 # ignore compiled files

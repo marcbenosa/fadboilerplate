@@ -21,6 +21,7 @@ if ( ! function_exists( 'fadboilerplate_setupmenus' ) ) :
 				'menu-1' => esc_html__( 'Primary', 'fadboilerplate' ),
 			)
 		);
+	}
 
 endif;
 add_action( 'after_setup_theme', 'fadboilerplate_setupmenus' );

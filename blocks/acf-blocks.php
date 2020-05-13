@@ -64,6 +64,7 @@ function register_acf_block_types() {
 	    'icon'              => 'wordpress',
 	    'keywords'          => array( 'example' ),
 	));
+}
 
 // Check if function exists and hook into setup.
 if( function_exists('acf_register_block_type') ) {

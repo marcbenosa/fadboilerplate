@@ -12,6 +12,7 @@ mysql -uroot -proot {projectfolder} -e "GRANT ALL PRIVILEGES ON {projectfolder}.
 mysql -uroot -proot {projectfolder} -e "FLUSH PRIVILEGES;"
 
 ##copy the wp-config file
+cp wp-content/themes/{projectfolder}/helpers/wp-config-local.php wp-config-local.php
 cp wp-config-local.php wp-config.php
 
 ##install
@@ -143,11 +144,3 @@ wp plugin update --all
 
 ## Search/replace to a SQL file without transforming the database
 # wp search-replace foo bar --export=database.sql
-
-
-
-
-
-
-
-
