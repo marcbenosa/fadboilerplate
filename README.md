@@ -53,6 +53,9 @@ If you're developing on Mac/Linux
 ## To Run - beta
 *We are still working on the build & run process - this may not behave 100% as expected*
 * `npm run develop` will run the scss linter, compiler, and autoprefixer, in that order, then will watch for changes.
+Dependencies
+* `npm install -g npm-watch`
+
 
 ## Theme Folder Structure
 **fadboilerplate**

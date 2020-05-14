@@ -15,8 +15,8 @@
  */
 
 $debian_server = "fad.local/{sitename}";
-define('WP_SITEURL', sprintf("https://%s", $debian_server));
-define('WP_HOME', sprintf("https://%s", $debian_server));
+define('WP_SITEURL', sprintf("http://%s", $debian_server));
+define('WP_HOME', sprintf("http://%s", $debian_server));
 define('FS_METHOD','direct');
 
 
