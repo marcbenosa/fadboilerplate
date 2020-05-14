@@ -37,15 +37,18 @@ If you're developing on Mac/Linux
 
 *  Navigate to the new project root directory
 *  Pull down WordPress core using wp cli
-   `wp core download`
+	 `wp core download`
 *  Clone the repo into the wp-content/themes/ folder
 *  Remove the git folder
 *  Rename the theme folder
 *  Edit helpers/renameall.py to handle all the file and filename renames
 *  Run helpers/renameall.py
+	 `python renameall.py`
 *  Edit wp-content/themes/mytheme/wp-config-local.php to match the site URL and database credentials
 *  Edit helpers/wp_init.sh with your needs and credentials
 *  Run helpers/wp_init.sh
+	 `sh wp_init.sh`
+
 
 ## To Run - beta
 *We are still working on the build & run process - this may not behave 100% as expected*
@@ -127,7 +130,7 @@ These are typically installed by wp-cli and in wp_init.sh
 Page-specific templates should have
 
 *  a `page-{name}.php` main template file
-*  and a `ontent-{name}.php` content file
+*  and a `content-{name}.php` content file
 *  e.g. `page-about.php` and `content-about.php`
 *  Reusable sections of the site should be in the `/partials` folders
     *  and named `partial-{name-of-feature-or-section}.php`

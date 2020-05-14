@@ -4,7 +4,7 @@
 # URL:		JohnHimics.com
 
 #cd to the site root
-cd /var/www/{projectfolder};
+cd /var/www/public/{projectfolder};
 
 #create database
 mysql -uroot -proot  -e "CREATE DATABASE {projectfolder};"
