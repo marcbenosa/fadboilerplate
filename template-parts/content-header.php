@@ -1,6 +1,6 @@
 <?php
 /**
- * @package fadboilerplate
+ * @package milesscientific
  */
 
 $company_logo   = get_field('company_logo', 'options');
@@ -19,31 +19,22 @@ $header_logo    = $company_logo['url'];
                         <img src="<?php echo $company_logo['url']; ?>" alt="<?php echo $company_logo['name']; ?>" class="nav-logo" />
                 <?php } ?>
             </a>
-
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs4-header-menu">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-
-            <div class="navbar-menu">
-                <?php wp_nav_menu(
-                	array(
-                	'theme_location'=> 'primary',
-                	'menu_id' => 'primary-menu',
-                	'depth' => 2,
-                	'container' => 'div',
-                	'container_class' => 'collapse navbar-collapse',
-                	'container_id' => 'bs4-header-menu',
-                	'menu_class' => 'navbar-nav mr-auto',
-                	'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
-                	'walker' => new WP_Bootstrap_Navwalker()
-                ) );
-                ?>
-            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <?php wp_nav_menu(
+                array(
+                'theme_location'=> 'primary',
+                'menu_id' => 'primary-menu',
+                'depth' => 2,
+                'container' => 'div',
+                'container_class' => 'collapse navbar-collapse',
+                'container_id' => 'navbarTogglerDemo',
+                'menu_class' => 'navbar-nav ml-auto',
+                'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+                'walker' => new WP_Bootstrap_Navwalker()
+            ) );
+            ?>
         </nav>
         <!-- #site-navigation -->
     </div>
