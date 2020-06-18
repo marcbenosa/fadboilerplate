@@ -56,7 +56,7 @@
 		top: 0;
 		position: absolute;
 		left: 0;
-		color: $color__link;
+		color: $link-color;
 	}
 }
 
@@ -83,7 +83,7 @@ p.stars {
 			line-height: 1;
 			font-family: star;
 			content: "\53";
-			color: $color__text-main;
+			color: $body-color;
 			text-indent: 0;
 			opacity: 0.25;
 		}
@@ -92,7 +92,7 @@ p.stars {
 
 			~ a::before {
 				content: "\53";
-				color: $color__text-main;
+				color: $body-color;
 				opacity: 0.25;
 			}
 		}
@@ -104,7 +104,7 @@ p.stars {
 
 			&::before {
 				content: "\53";
-				color: $color__link;
+				color: $link-color;
 				opacity: 1;
 			}
 		}
@@ -116,13 +116,13 @@ p.stars {
 
 			&::before {
 				content: "\53";
-				color: $color__link;
+				color: $link-color;
 				opacity: 1;
 			}
 
 			~ a::before {
 				content: "\53";
-				color: $color__text-main;
+				color: $body-color;
 				opacity: 0.25;
 			}
 		}
@@ -131,7 +131,7 @@ p.stars {
 
 			&::before {
 				content: "\53";
-				color: $color__link;
+				color: $link-color;
 				opacity: 1;
 			}
 		}
@@ -176,19 +176,19 @@ p.stars {
 	text-align: right;
 
 	&.strong {
-		color: $woocommerce__color-success;
+		color: $success;
 	}
 
 	&.short {
-		color: $woocommerce__color-error;
+		color: $danger;
 	}
 
 	&.bad {
-		color: $woocommerce__color-error;
+		color: $danger;
 	}
 
 	&.good {
-		color: $woocommerce__color-info;
+		color: $info;
 	}
 }
 
@@ -200,14 +200,14 @@ p.stars {
 	&.woocommerce-validated {
 
 		input.input-text {
-			box-shadow: inset 2px 0 0 $woocommerce__color-success;
+			box-shadow: inset 2px 0 0 $success;
 		}
 	}
 
 	&.woocommerce-invalid {
 
 		input.input-text {
-			box-shadow: inset 2px 0 0 $woocommerce__color-error;
+			box-shadow: inset 2px 0 0 $danger;
 		}
 	}
 }
@@ -224,18 +224,18 @@ p.stars {
 .woocommerce-error,
 .woocommerce-noreviews,
 p.no-comments {
-	background-color: $woocommerce__color-success;
+	background-color: $success;
 	clear: both;
 }
 
 .woocommerce-info,
 .woocommerce-noreviews,
 p.no-comments {
-	background-color: $woocommerce__color-info;
+	background-color: $info;
 }
 
 .woocommerce-error {
-	background-color: $woocommerce__color-error;
+	background-color: $danger;
 }
 
 .demo_store {
@@ -245,7 +245,7 @@ p.no-comments {
 	right: 0;
 	margin: 0;
 	padding: 1em;
-	background-color: $woocommerce__color-info;
+	background-color: $info;
 	z-index: 9999;
 }
 
