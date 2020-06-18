@@ -7,3 +7,97 @@
 ## Menus
 --------------------------------------------------------------*/
 @import "menus";
+
+// Main Navigation
+.main-navigation {
+	height: 100px;
+
+	.navbar-brand {
+		width: auto;
+		height: 100%;
+
+		.nav-logo {
+			width: auto;
+			height: 100%;
+		}
+	}
+
+	// Navbar toggle built extending Bootstrap classes. Burger time!
+	// .navbar-toggler
+	.navbar-toggler {
+
+		@extend .btn;
+		display: flex;
+		align-items: center;
+
+		&-icon__wrapper {
+			display: inline-block;
+			position: relative;
+			width: 36px;
+			height: 50px;
+			transform: rotate(45deg);
+			transition: all, ease, 75ms;
+		}
+
+		&-icon,
+		&-icon::before,
+		&-icon::after {
+			position: absolute;
+			background-color: black;
+			border-radius: $border-radius;
+			width: 36px;
+			height: 6px;
+			left: 0;
+			transition: all, ease, 75ms;
+		}
+
+		&-icon {
+			top: 50%;
+			transform: translateY(-50%);
+
+			&::before {
+				content: "";
+				top: 0;
+				transform: rotate(90deg);
+			}
+
+			&::after {
+				content: "";
+				top: 0;
+			}
+		}
+
+		&.collapsed {
+
+			.navbar-toggler-icon__wrapper {
+				transform: rotate(0);
+			}
+
+			.navbar-toggler-icon {
+				transform: translateY(0);
+
+				&::before {
+					content: "";
+					top: -14px;
+					transform: rotate(0);
+				}
+
+				&::after {
+					content: "";
+					top: 14px;
+				}
+			}
+		}
+	} // end - .navbar-toggler
+
+	.navbar-collapse {
+
+		&.collapsing {
+			background: #00f;
+		}
+
+		&.collapse.show {
+			background: #000;
+		}
+	}
+}

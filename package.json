@@ -11,7 +11,7 @@
   "homepage": "https://firstascentdesign.com",
   "repository": {
     "type": "git",
-    "url": "https://seanclendening@bitbucket.org/firstascentdesignllc/fadboilerplate.git"
+    "url": "https://bitbucket.org/firstascentdesignllc/fadboilerplate/src/master/"
   },
   "devDependencies": {
     "@wordpress/scripts": "^9.0.0",
@@ -40,7 +40,9 @@
   },
   "watch": {
     "watch:scss": {
-      "patterns": [ "scss" ],
+      "patterns": [
+        "scss"
+      ],
       "extensions": "scss",
       "legacyWatch": true,
       "delay": 5000,
@@ -48,7 +50,9 @@
     }
   },
   "scripts": {
-    "compile:css": "node-sass scss/style.scss style.css --output-style compressed --source-map true && node-sass scss/woocommerce.scss woocommerce.css --output-style compressed --source-map true",
+    "scss:main": "node-sass scss/style.scss style.css --output-style compressed --source-map true ",
+    "scss:woocommerce": "node-sass scss/woocommerce.scss woocommerce.css --output-style compressed --source-map true",
+    "compile:css": "npm run scss:main",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'scss/**/*.scss' --fix || true",
     "lint:js": "wp-scripts lint-js 'js/*.js' --fix || true",

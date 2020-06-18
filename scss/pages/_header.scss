@@ -1,34 +1,15 @@
 .site-header {
-	height: 86px;
-	width: 100%;
 	position: fixed;
-	background: black;
+	background: white;
+	height: auto;
+	width: 100%;
 	top: 0;
 	left: 0;
-	right: 0;
 	z-index: 1000;
-	padding: 12px 2rem;
-
-	@include transition(all, ease-in-out, 0.3s);
+	box-shadow: 0 -10px 20px 20px transparentize(desaturate($primary, 50%), 0.5);
+	transition: box-shadow 0.15s ease-in;
 
 	&.top {
-		background: transparent;
-	}
-}
-
-//Change nav breakpoint
-@media (max-width: 1199px) {
-
-	.site-header {
-		background-color: black !important;
-		padding: 12px 0;
-
-		.container-fluid {
-			padding: 0;
-		}
-
-		.social-media {
-			margin: 12px 0 20px;
-		}
+		box-shadow: none;
 	}
 }
