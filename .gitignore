@@ -26,6 +26,7 @@
 !CHANGELOG.md
 !composer.json
 !.htaccess
+!package.json
 
 # ignore all files that start with ~
 ~*
@@ -87,5 +88,4 @@ tmp/
 
 #IGNORE backup files
 *_bak*
-*_back*
 *_backup*

@@ -52,7 +52,7 @@
   "scripts": {
     "scss:main": "node-sass scss/style.scss style.css --output-style compressed --source-map true ",
     "scss:woocommerce": "node-sass scss/woocommerce.scss woocommerce.css --output-style compressed --source-map true",
-    "compile:css": "npm run scss:main",
+    "compile:css": "npm run scss:main && npm run scss:woocommerce",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'scss/**/*.scss' --fix || true",
     "lint:js": "wp-scripts lint-js 'js/*.js' --fix || true",
