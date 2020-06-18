@@ -35,16 +35,15 @@ node-sass -w scss/main.scss style.css --source-map=true --output-style=compresse
 # Typography
 # Elements
 # Forms
+# Layout
+# Media
+# Modules
+  ## Accessibility
+  ## Alignments
 # Navigation
 	## Links
 	## Menus
-# Accessibility
-# Alignments
-# Widgets
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
+  ## Infinite scroll
 # Main Styles and Page Styles
 # Custom Post Type Styles
 # Block Styles
@@ -79,24 +78,13 @@ node-sass -w scss/main.scss style.css --source-map=true --output-style=compresse
 @import "forms/forms";
 
 /***********************************************************************
-# Navigation
+# Layout
 ***********************************************************************/
-@import "navigation/navigation";
-
-/***********************************************************************
-# Accessibility
-***********************************************************************/
-@import "modules/accessibility";
-
-/***********************************************************************
-# Alignments
-***********************************************************************/
-@import "modules/alignments";
-
-/***********************************************************************
-# Infinite scroll
-***********************************************************************/
-@import "modules/infinite-scroll";
+// @import "layout/content-sidebar";
+@import "layout/header";
+@import "layout/footer";
+// @import "layout/no-sidebar";
+// @import "layout/sidebar-content";
 
 /***********************************************************************
 # Media
@@ -104,10 +92,20 @@ node-sass -w scss/main.scss style.css --source-map=true --output-style=compresse
 @import "media/media";
 
 /***********************************************************************
+# Modules
+***********************************************************************/
+@import "modules/accessibility";
+@import "modules/alignments";
+@import "modules/infinite-scroll";
+
+/***********************************************************************
+# Navigation
+***********************************************************************/
+@import "navigation/navigation";
+
+/***********************************************************************
 Main Styles and Page Styles
 ***********************************************************************/
-@import "pages/header";
-@import "pages/footer";
 @import "pages/default-page";
 @import "pages/front-page";
 @import "pages/blog-archive";
