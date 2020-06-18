@@ -8,26 +8,5 @@ html {
 	}
 }
 
-body {
-	background: #fff;
-	font: 100%;
-	font-size: $default-size;
-	font-family: $font-default;
-	font-weight: 400;
-	position: relative;
-}
-
-body,
-button,
-input,
-select,
-optgroup,
-textarea {
-	color: $color__text-main;
-	font-family: $font__main;
-	font-size: 1rem;
-	line-height: $font__line-height-body;
-}
-
 @import "headings";
 @import "copy";
