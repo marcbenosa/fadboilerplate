@@ -11,11 +11,6 @@ function fadboilerplate_scripts() {
 	// https://fontawesome.com/
     wp_enqueue_style( "font-awesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", false, NULL, 'all' );
 
-	// Slick Slider CSS
-	// https://kenwheeler.github.io/slick/
-    wp_enqueue_style( "slick-style", get_template_directory_uri() . '/lib/slick/slick.css', false, NULL, 'all' );
-  	wp_enqueue_style( "slick-theme-style", get_template_directory_uri() . '/lib/slick/slick-theme.css', false, NULL, 'all' );
-
     // Theme Stylesheet
 	wp_enqueue_style( 'fadboilerplate-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'fadboilerplate-style', 'rtl', 'replace' );
@@ -36,11 +31,6 @@ function fadboilerplate_scripts() {
 
     wp_register_script( 'jquery-js', get_template_directory_uri() . '/lib/jquery-3.4.1.slim.min.js', false, NULL, 'all' );
     wp_enqueue_script( 'jquery-js' );
-
-	// Slick Slider JS
-	// https://kenwheeler.github.io/slick/
-	wp_register_script( 'slick-js', get_template_directory_uri() . '/lib/slick/slick.min.js', array('jquery'), NULL, true );
-	wp_enqueue_script( 'slick-js' );
 
 	// GSAP
 	// https://greensock.com/get-started/#loading-gsap
