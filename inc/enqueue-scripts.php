@@ -9,14 +9,11 @@ function fadboilerplate_scripts() {
 
 	// Font-Awesome by CDN
 	// https://fontawesome.com/
-    wp_enqueue_style( "font-awesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", false, NULL, 'all' );
+    // wp_enqueue_style( "font-awesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", false, NULL, 'all' );
 
     // Theme Stylesheet
 	wp_enqueue_style( 'fadboilerplate-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'fadboilerplate-style', 'rtl', 'replace' );
-
-	// Overriden by Bootstrap 4
-	// wp_enqueue_script( 'fadboilerplate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	/**
 	 * Scripts
@@ -46,11 +43,6 @@ function fadboilerplate_scripts() {
 	// wp_register_script( "scrollmagic-debug-js", "//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js", false, NULL, 'all' );
 	// wp_enqueue_script( 'scrollmagic-debug-js' );
 
-	// Popper.js
-	// https://popper.js.org/
-	wp_register_script( "popper-js", get_template_directory_uri() . '/lib/popper.min.js', false, NULL, 'all' );
-	wp_enqueue_script( 'popper-js' );
-
 
 	// Respond.js
 	// https://github.com/scottjehl/Respond
@@ -63,14 +55,14 @@ function fadboilerplate_scripts() {
 	// Match-Height.js
 	// https://github.com/liabru/jquery-match-height
 	// For a JS function to match heights of elements.
-	// by CDN
-	wp_register_script( "match-height-js", "https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js", array('jquery'), NULL, 'all' );
-	wp_enqueue_script( 'match-height-js' );
+	// Try to use Flexbox first. Use this as a last attempt.
+	// wp_register_script( "match-height-js", "https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js", array('jquery'), NULL, 'all' );
+	// wp_enqueue_script( 'match-height-js' );
 
 	// Bootstrap 4 Scripts
 	// https://getbootstrap.com
 	// by Local files
-	wp_register_script( "bootstrap-js", get_template_directory_uri() . '/lib/bootstrap.min.js', array('jquery'), NULL, 'all' );
+	wp_register_script( "bootstrap-js", get_template_directory_uri() . '/lib/bootstrap.bundle.min.js', array('jquery'), NULL, 'all' );
 	wp_enqueue_script( 'bootstrap-js' );
 
 	// Theme Scripts
