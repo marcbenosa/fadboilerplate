@@ -50,16 +50,19 @@ function fouc() {
  *  Custom Functions for the theme
  *******************************************/
 
-function menu_scroll_background() {
+function main_navigation_scroll() {
 
   $(window).scroll(function() {
     var scrollTop = $(window).scrollTop();
     var $site_header = $(".site-header");
+		var $site_header_spacer = $(".site-header__spacer");
 
     if (scrollTop > 0) {
       $site_header.removeClass("top");
+			$site_header_spacer.removeClass("top");
     } else {
       $site_header.addClass("top");
+			$site_header_spacer.addClass("top");
     }
   });
 }
@@ -187,19 +190,6 @@ function backtotop() {
   }
 }
 
-function slick_slider() {
-  if ($('.gallery-slider').length) {
-    $('.gallery-slider').slick({
-      autoplay: true,
-      autoplaySpeed: 4000,
-      arrows: true,
-      dots: true,
-      fade: true,
-      pauseOnHover: false
-    });
-  }
-}
-
 // ScrollMagic And GreenSock Animation
 function scrollMagicGsap() {
 
@@ -227,11 +217,9 @@ function scrollMagicGsap() {
  */
 $(document).ready(function() {
   fouc();
-  menu_scroll_background();
+  main_navigation_scroll();
   match_heights_init();
   anchor_smooth_scrolling();
   backtotop();
-  // slick_slider();
   scrollMagicGsap();
 });
-

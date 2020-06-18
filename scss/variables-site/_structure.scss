@@ -1,5 +1,5 @@
 /* Heights */
-$nav-height: 60px;
+$nav-height: 100px;
 $footer-height: 50px;
 
 /* Sizes */
@@ -12,6 +12,28 @@ $xsmall-devices: 576px;
 $phone-size: 768px;
 $tablet-size: 992px;
 $desktop-size: 1200px;
+$lg-desktop-size: 1440px;
+
+$grid-gutter-width: 30px;
+$grid-breakpoints: (
+	xs: 0,
+	sm: $xsmall-devices,
+	md: $phone-size,
+	lg: $tablet-size,
+	xl: $desktop-size
+);
+
+$border-width: 3px;
+
+$border-radius:     0;
+$border-radius-lg:  0;
+$border-radius-sm:  0;
+
+$btn-border-width: $border-width;
+$btn-border-radius: 0;
+
+// Easings
+$fadboilerplate-timing: cubic-bezier(0, 0.9, 0.13, 0.9);
 
 /* Minimum site size for very small pages */
 .site-content {
