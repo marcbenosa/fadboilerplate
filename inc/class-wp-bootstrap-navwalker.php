@@ -184,21 +184,28 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
 			$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
 			// If the item has children, add atts to the <a>.
-			if ( isset( $args->has_children ) && $args->has_children && 0 === $depth && $args->depth > 1 ) {
-				$atts['href']          = '#';
-				$atts['data-toggle']   = 'dropdown';
-				$atts['aria-haspopup'] = 'true';
-				$atts['aria-expanded'] = 'false';
-				$atts['class']         = 'dropdown-toggle nav-link';
-				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
+			// if ( isset( $args->has_children ) && $args->has_children && 0 === $depth && $args->depth > 1 ) {
+			// 	$atts['href']          = '#';
+			// 	$atts['data-toggle']   = 'dropdown';
+			// 	$atts['aria-haspopup'] = 'true';
+			// 	$atts['aria-expanded'] = 'false';
+			// 	$atts['class']         = 'dropdown-toggle nav-link';
+			// 	$atts['id']            = 'menu-item-dropdown-' . $item->ID;
+			// } else {
+			// 	$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
+			// 	// For items in dropdowns use .dropdown-item instead of .nav-link.
+			// 	if ( $depth > 0 ) {
+			// 		$atts['class'] = 'dropdown-item';
+			// 	} else {
+			// 		$atts['class'] = 'nav-link';
+			// 	}
+			// }
+			$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
+			// For items in dropdowns use .dropdown-item instead of .nav-link.
+			if ( $depth > 0 ) {
+				$atts['class'] = 'dropdown-item';
 			} else {
-				$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
-				// For items in dropdowns use .dropdown-item instead of .nav-link.
-				if ( $depth > 0 ) {
-					$atts['class'] = 'dropdown-item';
-				} else {
-					$atts['class'] = 'nav-link';
-				}
+				$atts['class'] = 'nav-link';
 			}
 
 			$atts['aria-current'] = $item->current ? 'page' : '';
@@ -223,6 +230,11 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			// START appending the internal item contents to the output.
 			$item_output = isset( $args->before ) ? $args->before : '';
 
+			// Set flag if the label is a shortcode.
+			$has_shortcode = preg_match('/^\[.*\]$/', $atts['title'], $shortcode );
+			if ($has_shortcode && empty($shortcode[0])) {
+				$has_shortcode = 0;
+			}
 			/*
 			 * This is the start of the internal nav item. Depending on what
 			 * kind of linkmod we have we may need different wrapper elements.
@@ -230,7 +242,27 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			if ( '' !== $linkmod_type ) {
 				// Is linkmod, output the required element opener.
 				$item_output .= self::linkmod_element_open( $linkmod_type, $attributes );
+			} elseif ( $has_shortcode ) {
+				$content = do_shortcode( $shortcode[0] );
+				$item_output .= '<div>' . $content;
 			} else {
+				if (isset( $args->has_children ) && $args->has_children && 0 === $depth && $args->depth > 1) {
+					$dropdown_atts = array();
+					$dropdown_atts['href']          = '#';
+					$dropdown_atts['data-toggle']   = 'dropdown';
+					$dropdown_atts['aria-haspopup'] = 'true';
+					$dropdown_atts['aria-expanded'] = 'false';
+					$dropdown_atts['class']         = 'dropdown-toggle';
+					$dropdown_atts['id']            = 'menu-item-dropdown-' . $item->ID;
+					$dropdown_attributes = '';
+					foreach ( $dropdown_atts as $attr => $value ) {
+						if ( ! empty( $value ) ) {
+							$value       = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+							$dropdown_attributes .= ' ' . $attr . '="' . $value . '"';
+						}
+					}
+					$item_output .= '<div' . $dropdown_attributes . '></div>';
+				}
 				// With no link mod type set this must be a standard <a> tag.
 				$item_output .= '<a' . $attributes . '>';
 			}
@@ -271,8 +303,9 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			}
 
 			// Put the item contents into $output.
-			$item_output .= isset( $args->link_before ) ? $args->link_before . $icon_html . $title . $args->link_after : '';
-
+			if ( ! $has_shortcode ) {
+				$item_output .= isset( $args->link_before ) ? $args->link_before . $icon_html . $title . $args->link_after : '';
+			}
 			/*
 			 * This is the end of the internal nav item. We need to close the
 			 * correct element depending on the type of link or link mod.
@@ -280,6 +313,8 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			if ( '' !== $linkmod_type ) {
 				// Is linkmod, output the required closing element.
 				$item_output .= self::linkmod_element_close( $linkmod_type );
+			} elseif ( $has_shortcode ) {
+				$item_output .= '</div>';
 			} else {
 				// With no link mod type set this must be a standard <a> tag.
 				$item_output .= '</a>';
