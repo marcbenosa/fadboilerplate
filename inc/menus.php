@@ -15,10 +15,10 @@ if ( ! function_exists( 'fadboilerplate_setupmenus' ) ) :
 	 */
 	function fadboilerplate_setupmenus() {
 
-		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
 				'primary' => esc_html__( 'Primary Menu', 'fadboilerplate' ),
+				'footer'  => esc_html__( 'Footer Menu', 'fadboilerplate' ),
 			)
 		);
 	}

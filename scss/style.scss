@@ -96,7 +96,7 @@ node-sass -w scss/main.scss style.css --source-map=true --output-style=compresse
 ***********************************************************************/
 @import "modules/accessibility";
 @import "modules/alignments";
-@import "modules/infinite-scroll";
+// @import "modules/infinite-scroll";
 
 /***********************************************************************
 # Navigation

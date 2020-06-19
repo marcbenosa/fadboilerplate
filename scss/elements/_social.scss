@@ -1,0 +1,25 @@
+.social {
+	margin-top: 3em;
+
+	&-button {
+		padding: 0 0.25em;
+
+		svg {
+			fill: $primary;
+			width: 2.5em;
+			height: 2.5em;
+		}
+
+		&:hover svg {
+			fill: $black;
+		}
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+}
