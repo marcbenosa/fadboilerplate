@@ -26,8 +26,9 @@ function fadboilerplate_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-    wp_register_script( 'jquery-js', get_template_directory_uri() . '/lib/jquery-3.4.1.slim.min.js', false, NULL, 'all' );
-    wp_enqueue_script( 'jquery-js' );
+	wp_deregister_script('jquery');
+    wp_register_script( 'jquery', get_template_directory_uri() . '/lib/jquery-3.4.1.slim.min.js' );
+    wp_enqueue_script( 'jquery' );
 
 	// GSAP
 	// https://greensock.com/get-started/#loading-gsap
@@ -71,6 +72,23 @@ function fadboilerplate_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'fadboilerplate_scripts' );
+
+/**
+ * Dequeue WordPress default scripts
+ */
+function fadboilerplate_default_scripts( $scripts ) {
+	if ( ! is_admin() ) {
+		wp_deregister_style( 'dashicons' );
+	}
+	if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
+		$script = $scripts->registered['jquery'];
+		if ( $script->deps ) {
+			// Check whether the script has any dependencies
+			$script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+		}
+	}
+}
+add_action( 'wp_default_scripts', 'fadboilerplate_default_scripts' );
 
 /**
  * Custom Login Styles
