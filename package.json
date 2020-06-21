@@ -50,15 +50,23 @@
     }
   },
   "scripts": {
-    "scss:main": "node-sass scss/style.scss style.css --output-style compressed --source-map none",
-    "scss:woocommerce": "node-sass scss/woocommerce.scss woocommerce.css --output-style compressed --source-map none",
+    "//": "--- DEVELOPMENT SCRIPTS ---",
+    "scss:main": "node-sass scss/style.scss style.css --output-style compressed --source-map true",
+    "scss:woocommerce": "node-sass scss/woocommerce.scss woocommerce.css --output-style compressed --source-map true",
     "compile:css": "npm run scss:main && npm run scss:woocommerce",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'scss/**/*.scss' --fix || true",
     "lint:js": "wp-scripts lint-js 'js/*.js' --fix || true",
     "prefix:css": "postcss --use autoprefixer --replace style.css && postcss --use autoprefixer --replace woocommerce.css",
-    "bundle": "node bin/bundle.js",
+    "bundle": "node bundle.js",
     "watch:scss": "npm run lint:scss && npm run compile:css && npm run prefix:css",
-    "develop": "npm-watch"
+    "//": "--- PRODUCTION SCRIPTS ---",
+    "prod:scss:main": "node-sass scss/style.scss dist/style.css --output-style compressed",
+    "prod:scss:woocommerce": "node-sass scss/woocommerce.scss dist/woocommerce.css --output-style compressed",
+    "prod:compile:css": "npm run prod:scss:main && npm run prod:scss:woocommerce",
+    "prod:prefix:css": "postcss --use autoprefixer --replace dist/style.css --no-map && postcss --use autoprefixer --replace dist/woocommerce.css --no-map",
+    "//": "--- RUNTIME SCRIPTS ---",
+    "develop": "npm-watch",
+    "production": "npm run prod:compile:css && npm run prod:prefix:css"
   }
 }

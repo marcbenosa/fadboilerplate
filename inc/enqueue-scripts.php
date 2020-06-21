@@ -11,9 +11,21 @@ function fadboilerplate_scripts() {
 	// https://fontawesome.com/
     // wp_enqueue_style( "font-awesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", false, NULL, 'all' );
 
-    // Theme Stylesheet
-	wp_enqueue_style( 'fadboilerplate-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'fadboilerplate-style', 'rtl', 'replace' );
+    /**
+     * Theme Stylesheet
+     *
+     * Use CSS source map while running in debug mode.
+     * Otherwise, serve the smaller file without mapping JSON.
+     */
+	if (defined('WP_DEBUG') && true === WP_DEBUG) {
+		wp_enqueue_style( 'fadboilerplate-style', get_stylesheet_uri(), array(), _S_VERSION );
+		wp_style_add_data( 'fadboilerplate-style', 'rtl', 'replace' );
+	} else {
+		// Serve CSS without Source Map
+		wp_enqueue_style( 'fadboilerplate-style', get_template_directory_uri() . '/dist/style.css', array(), _S_VERSION );
+		wp_style_add_data( 'fadboilerplate-style', 'rtl', 'replace' );
+	}
+
 
 	/**
 	 * Scripts
@@ -77,9 +89,6 @@ add_action( 'wp_enqueue_scripts', 'fadboilerplate_scripts' );
  * Dequeue WordPress default scripts
  */
 function fadboilerplate_default_scripts( $scripts ) {
-	if ( ! is_admin() ) {
-		wp_deregister_style( 'dashicons' );
-	}
 	if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
 		$script = $scripts->registered['jquery'];
 		if ( $script->deps ) {
@@ -96,7 +105,7 @@ add_action( 'wp_default_scripts', 'fadboilerplate_default_scripts' );
 function my_login_stylesheet() {
     wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/css/wp_login.css' );
 }
-add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+// add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
 /**
  * Custom Admin Styles
@@ -104,4 +113,4 @@ add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 function my_admin_theme_style() {
     wp_enqueue_style('my-admin-theme', get_template_directory_uri() . '/css/wp_admin.css');
 }
-add_action('admin_enqueue_scripts', 'my_admin_theme_style');
+// add_action('admin_enqueue_scripts', 'my_admin_theme_style');
