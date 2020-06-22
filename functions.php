@@ -13,6 +13,11 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 /**
+ * Custom Theme Shortcodes
+ */
+require_once(get_template_directory() . '/shortcodes/shortcodes.php');
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
@@ -106,11 +111,6 @@ foreach (glob(get_template_directory() . "/taxonomies/*.php") as $filename)
  * SVG handler
  */
 require_once(get_template_directory() . '/svg/svg.php');
-
-/**
- * Custom Theme Shortcodes
- */
-require_once(get_template_directory() . '/inc/shortcodes.php');
 
 /**
  * Restricting content based on login, ACF, and post types

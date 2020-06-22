@@ -1,9 +1,12 @@
 .btn {
 
-	.btn-cta {
+	&.btn-cta {
+		background-color: $primary;
+		color: color-yiq($primary);
 		font-size: $button-size;
-		text-transform: uppercase;
 		margin-top: 3rem;
+		padding: 1rem 3rem;
+		text-transform: uppercase;
 
 		&:hover {
 			background-color: lighten($blue, 5%);
