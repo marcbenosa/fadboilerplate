@@ -3,15 +3,15 @@ global:
   sql_adapter: "wpcli"
 
 local:
-  vhost: "http://fad.local/fadboilerplate"
-  wordpress_path: "/var/www/public/fadboilerplate" # use an absolute path here
+  vhost: "http://fad.local/{DB_NAME}"
+  wordpress_path: "/var/www/public/{DB_NAME}" # use an absolute path here
 
   database:
-    name: "fadboilerplate"
-    user: "fadboilerplate"
-    password: "fadboilerplate"
+    name: "{DB_NAME}"
+    user: "{DB_NAME}"
+    password: "{DB_NAME}"
     host: "localhost"
-    mysqldump_options: "--add-drop-table --ignore-table=fadboilerplate.wp_wfVulnScanners --ignore-table=fadboilerplate.wp_wfThrottleLog --ignore-table=fadboilerplate.wp_wfStatus --ignore-table=fadboilerplate.wp_wfSNIPCache --ignore-table=fadboilerplate.wp_wfScanners --ignore-table=fadboilerplate.wp_wfReverseCache --ignore-table=fadboilerplate.wp_wfNet404s --ignore-table=fadboilerplate.wp_wfLogins --ignore-table=fadboilerplate.wp_wfLocs --ignore-table=fadboilerplate.wp_wfLockedOut --ignore-table=fadboilerplate.wp_wfLeechers --ignore-table=fadboilerplate.wp_wfKnownFileList --ignore-table=fadboilerplate.wp_wfIssues --ignore-table=fadboilerplate.wp_wfHoover --ignore-table=fadboilerplate.wp_wfHits --ignore-table=fadboilerplate.wp_wfFileMods --ignore-table=fadboilerplate.wp_wfCrawlers --ignore-table=fadboilerplate.wp_wfConfig --ignore-table=fadboilerplate.wp_wfBlocksAdv --ignore-table=fadboilerplate.wp_wfBlocks --ignore-table=fadboilerplate.wp_wfBlockedIPLog --ignore-table=fadboilerplate.wp_wfBadLeechers"
+    mysqldump_options: "--add-drop-table --ignore-table={DB_NAME}.wp_wfVulnScanners --ignore-table={DB_NAME}.wp_wfThrottleLog --ignore-table={DB_NAME}.wp_wfStatus --ignore-table={DB_NAME}.wp_wfSNIPCache --ignore-table={DB_NAME}.wp_wfScanners --ignore-table={DB_NAME}.wp_wfReverseCache --ignore-table={DB_NAME}.wp_wfNet404s --ignore-table={DB_NAME}.wp_wfLogins --ignore-table={DB_NAME}.wp_wfLocs --ignore-table={DB_NAME}.wp_wfLockedOut --ignore-table={DB_NAME}.wp_wfLeechers --ignore-table={DB_NAME}.wp_wfKnownFileList --ignore-table={DB_NAME}.wp_wfIssues --ignore-table={DB_NAME}.wp_wfHoover --ignore-table={DB_NAME}.wp_wfHits --ignore-table={DB_NAME}.wp_wfFileMods --ignore-table={DB_NAME}.wp_wfCrawlers --ignore-table={DB_NAME}.wp_wfConfig --ignore-table={DB_NAME}.wp_wfBlocksAdv --ignore-table={DB_NAME}.wp_wfBlocks --ignore-table={DB_NAME}.wp_wfBlockedIPLog --ignore-table={DB_NAME}.wp_wfBadLeechers"
 
 staging:
   vhost: "http://firstascentstaging.com/fadboilerplate/"
@@ -50,7 +50,7 @@ staging:
     - "wp-content/object-cache.php"
     - "wp-content/cache/"
     #hide the theme if handling via git
-    - "wp-content/themes/fadboilerplate/"
+    #- "wp-content/themes/{THEMENAME}/" #Keep this commented for initial pulldown.
     #hide development plugins
     - "wp-content/plugins/simply-show-hooks/"
     - "wp-content/plugins/show-current-template/"
