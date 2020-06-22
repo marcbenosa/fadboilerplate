@@ -5,10 +5,9 @@
  *   and overrides are for larger sizes.
  */
 
-.block-template {
+.block-[name] {
 
-  &__container {
-  }
+  &__container { }
 
 }
 
@@ -27,5 +26,3 @@
 @media (min-width: $desktop-size) {
 
 }
-
-

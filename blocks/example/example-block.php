@@ -24,13 +24,15 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Get ACF fields.
+$content = get_field( 'content' );
 ?>
 
-<section id="<?php echo esc_attr($id); ?>" class="row <?php echo esc_attr($className); ?>">
-	<div class="block-[name]__container">
-
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+	<div class="block-[name]__container bg-primary text-light p-5">
+        <h1>Example Block</h1>
 		<div class="block-[name]__text-container">
-
+            <p><?php echo esc_html( $content ); ?></p>
 		</div>
 	</div>
 </section>

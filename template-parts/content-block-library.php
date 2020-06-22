@@ -14,7 +14,6 @@
 		<?php the_title( '<h1 class="entry-title display-1">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php dcad2020_post_thumbnail(); ?>
 	<div class="entry-content">
 		<?php
 		the_content();

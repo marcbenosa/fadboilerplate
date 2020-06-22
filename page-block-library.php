@@ -7,13 +7,13 @@
  */
 add_action('wp_head', function() { ?>
 	<style>
-		.wp-block-heading h2 {
+		.block-library__name {
 			position: relative;
 			background: yellow;
-			margin: 6rem 3rem;
+			margin: 6rem 3rem 2rem;
 		}
 
-		.wp-block-heading h2::after {
+		.block-library__name::after {
 			content: '';
 			position: absolute;
 			background: black;
@@ -21,6 +21,10 @@ add_action('wp_head', function() { ?>
 			left: 0;
 			width: 50%;
 			height: 6px;
+		}
+
+		.block-library__block {
+			padding: 4rem 0;
 		}
 
 		.quickmenu {
@@ -41,45 +45,51 @@ add_action('wp_head', function() { ?>
 	</style>
 <?php });
 
-add_action('wp_footer', function () { ?>
+/**
+ * Add items to quickmenu
+ */
+function block_library_quickmenu() { ?>
 	<script>
 		( function ( body ) {
 			'use strict';
-			var elements = document.querySelectorAll('*[id]');
+			var elements = document.querySelectorAll('.block-library__name');
 			var blocks = [];
 			for (var i = 0, n = elements.length; i < n; ++i) {
 				var el = elements[i];
-				if ('block' == el.id.substr(0,5)) {
-					var node = document.createElement("LI");
-					var link = document.createElement("A");
-					let text = document.getElementById(el.id).textContent;
-					var textnode = document.createTextNode(text);
-					link.appendChild(textnode);
-					link.href = '#'+el.id;
-					node.appendChild(link);
-					document.getElementById("quickmenu-menu").appendChild(node);
-				}
+				var node = document.createElement("LI");
+				var link = document.createElement("A");
+				let text = document.getElementById(el.id).textContent;
+				var textnode = document.createTextNode(text);
+				link.appendChild(textnode);
+				link.href = '#'+el.id;
+				node.appendChild(link);
+				document.getElementById("quickmenu-menu").appendChild(node);
 			}
 		} )( document.body );
 	</script>
-<?php });
+<?php }
+add_action('wp_footer', 'block_library_quickmenu');
 
 /**
- * Automatically add IDs to headings such as <h2></h2>
+ * Wrap custom gutenberg blocks in divs.
  */
-function auto_id_headings( $content ) {
+function block_library_block_wrapper( $block_content, $block ) {
+	if ( is_page( 'block-library' ) ) {
+		$name = $block['blockName'];
+		if ( 'acf/' === substr( $name, 0, 4 ) ) {
+			$name = ucwords( substr( $name, 4 ) );
+		}
+		$content = '<h2 id="'. $name .'" class="block-library__name">' . $name . '</h2>';
+		$content .= '<div class="block-library__block">';
+		$content .= $block_content;
+		$content .= '</div>';
 
-	$content = preg_replace_callback( '/(\<h[1-6](.*?))\>(Block.*)(<\/h[1-6]>)/i', function( $matches ) {
-		if ( ! stripos( $matches[0], 'id=' ) ) :
-			$matches[0] = $matches[1] . $matches[2] . ' id="' . sanitize_title( $matches[3] ) . '">' . $matches[3] . $matches[4];
-		endif;
-		return $matches[0];
-	}, $content );
+	    return $content;
+	}
 
-    return $content;
-
+	return $block_content;
 }
-add_filter( 'the_content', 'auto_id_headings' );
+add_filter( 'render_block', 'block_library_block_wrapper', 20, 2 );
 
 get_header(); ?>
 

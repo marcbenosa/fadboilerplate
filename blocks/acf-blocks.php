@@ -4,14 +4,13 @@
 */
 function my_block_category( $categories, $post ) {
 	return array_merge(
-		$categories,
 		array(
 			array(
 				'slug' => 'fadboilerplate-blocks',
 				'title' => __( 'fadboilerplate Blocks', 'fadboilerplate-blocks' ),
 				'icon'  => 'wordpress',
 			),
-		)
+		), $categories
 	);
 }
 add_filter( 'block_categories', 'my_block_category', 10, 2);
@@ -133,20 +132,6 @@ function wporg_block_wrapper( $block_content, $block ) {
 	    }
 	}
 
-	//classic blocks - might not work
-	if ( null === $block['blockName']
-		&& ! empty( $block_content ) ) {
-    	$content  = '<div class="wp-block-classic">';
-        $content .= $block_content;
-        $content .= '</div>';
-        return $content;
-    }
-    if ("tadv/classic-paragraph" === $block['blockName']) {
-    	$content  = '<div class="wp-block-classic">';
-        $content .= $block_content;
-        $content .= '</div>';
-        return $content;
-    }
     return $block_content;
 }
 

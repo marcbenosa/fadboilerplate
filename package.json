@@ -41,7 +41,8 @@
   "watch": {
     "watch:scss": {
       "patterns": [
-        "scss"
+        "scss",
+        "blocks"
       ],
       "extensions": "scss",
       "legacyWatch": true,
