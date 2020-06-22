@@ -1,0 +1,61 @@
+global:
+  # sql_adapter: "default"
+  sql_adapter: "wpcli"
+
+local:
+  vhost: "http://fad.local/fadboilerplate"
+  wordpress_path: "/var/www/public/fadboilerplate" # use an absolute path here
+
+  database:
+    name: "fadboilerplate"
+    user: "fadboilerplate"
+    password: "fadboilerplate"
+    host: "localhost"
+    mysqldump_options: "--add-drop-table --ignore-table=fadboilerplate.wp_wfVulnScanners --ignore-table=fadboilerplate.wp_wfThrottleLog --ignore-table=fadboilerplate.wp_wfStatus --ignore-table=fadboilerplate.wp_wfSNIPCache --ignore-table=fadboilerplate.wp_wfScanners --ignore-table=fadboilerplate.wp_wfReverseCache --ignore-table=fadboilerplate.wp_wfNet404s --ignore-table=fadboilerplate.wp_wfLogins --ignore-table=fadboilerplate.wp_wfLocs --ignore-table=fadboilerplate.wp_wfLockedOut --ignore-table=fadboilerplate.wp_wfLeechers --ignore-table=fadboilerplate.wp_wfKnownFileList --ignore-table=fadboilerplate.wp_wfIssues --ignore-table=fadboilerplate.wp_wfHoover --ignore-table=fadboilerplate.wp_wfHits --ignore-table=fadboilerplate.wp_wfFileMods --ignore-table=fadboilerplate.wp_wfCrawlers --ignore-table=fadboilerplate.wp_wfConfig --ignore-table=fadboilerplate.wp_wfBlocksAdv --ignore-table=fadboilerplate.wp_wfBlocks --ignore-table=fadboilerplate.wp_wfBlockedIPLog --ignore-table=fadboilerplate.wp_wfBadLeechers"
+
+staging:
+  vhost: "http://firstascentstaging.com/fadboilerplate/"
+  wordpress_path: "/var/www/firstascentstaging.com/public_html/fadboilerplate/" # use an absolute path here
+
+  database:
+    name: "fadboilerplate"
+    user: "fadboilerplate"
+    password: "fadboilerplate"
+    host: "localhost"
+    # port: "3308" # Use just in case you have exotic server config
+    # mysqldump_options: "--max_allowed_packet=1G" # Only available if using SSH
+    mysqldump_options: "--add-drop-table --ignore-table=fadboilerplate.wp_wfVulnScanners --ignore-table=fadboilerplate.wp_wfThrottleLog --ignore-table=fadboilerplate.wp_wfStatus --ignore-table=fadboilerplate.wp_wfSNIPCache --ignore-table=fadboilerplate.wp_wfScanners --ignore-table=fadboilerplate.wp_wfReverseCache --ignore-table=fadboilerplate.wp_wfNet404s --ignore-table=fadboilerplate.wp_wfLogins --ignore-table=fadboilerplate.wp_wfLocs --ignore-table=fadboilerplate.wp_wfLockedOut --ignore-table=fadboilerplate.wp_wfLeechers --ignore-table=fadboilerplate.wp_wfKnownFileList --ignore-table=fadboilerplate.wp_wfIssues --ignore-table=fadboilerplate.wp_wfHoover --ignore-table=fadboilerplate.wp_wfHits --ignore-table=fadboilerplate.wp_wfFileMods --ignore-table=fadboilerplate.wp_wfCrawlers --ignore-table=fadboilerplate.wp_wfConfig --ignore-table=fadboilerplate.wp_wfBlocksAdv --ignore-table=fadboilerplate.wp_wfBlocks --ignore-table=fadboilerplate.wp_wfBlockedIPLog --ignore-table=fadboilerplate.wp_wfBadLeechers"
+
+  exclude:
+    - ".tags"
+    - ".git/"
+    - ".gitignore"
+    - ".sass-cache/"
+    - "node_modules/"
+    - "bin/"
+    - "tmp/*"
+    - "Gemfile*"
+    - "Movefile"
+    - "Movefile.yml"
+    - "Movefile.yaml"
+    - "movefile"
+    - "movefile.yml"
+    - "movefile.yaml"
+    - "wp-config.php"
+    - "wp-content/*.sql"
+    - ".htaccess"
+    #ignore the W3 Total Cache files
+    - "wp-content/advanced-cache.php"
+    - "wp-content/db.php"
+    - "wp-content/object-cache.php"
+    - "wp-content/cache/"
+    #hide the theme if handling via git
+    - "wp-content/themes/{THEMENAME}/"
+    #hide development plugins
+    - "wp-content/plugins/simply-show-hooks/"
+    - "wp-content/plugins/show-current-template/"
+
+  ssh:
+    host: "165.227.116.120"
+    user: "poof"
+    rsync_options: "--no-perms --no-owner --no-group --no-times --checksum"
