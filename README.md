@@ -1,6 +1,6 @@
-# DCAD2020 Theme
+# FAD Boilerplate Theme
 
-Cloned from Boilerplate 5/13/2020
+Cloned from Boilerplate 0/0/0000
 
 ---
 ## Do not replace class-wp-bootstrap-navwalker
