@@ -10,8 +10,10 @@
 			height: 2.5em;
 		}
 
-		&:hover svg {
-			fill: $black;
+		&:hover svg,
+		&:active svg,
+		&:focus svg {
+			fill: darken($primary, 7.5%);
 		}
 
 		&:first-child {
