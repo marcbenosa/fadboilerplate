@@ -70,7 +70,8 @@ With NPM installed, simply run the following command:
 **`npm install && npm run develop`**.
 
 `npm install` to install packages. **Required to compile Bootstrap**.  
-`npm run develop` will run the scss linter, compiler, and autoprefixer, in that order, then will watch for changes.
+`npm run develop` will run the scss linter, compiler, and autoprefixer, in that order, then will watch for changes.  
+`npm run build` will build a production version of assets optimized for faster and lighter payloads. Requires `define('WP_DEBUG', false);`
 
 #### Having trouble? Some of these commands may help
 *  `nvm current`

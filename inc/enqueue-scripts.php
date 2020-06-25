@@ -17,14 +17,13 @@ function fadboilerplate_scripts() {
      * Use CSS source map while running in debug mode.
      * Otherwise, serve the smaller file without mapping JSON.
      */
-	if (defined('WP_DEBUG') && true === WP_DEBUG) {
-		wp_enqueue_style( 'fadboilerplate-style', get_stylesheet_uri(), array(), _S_VERSION );
-		wp_style_add_data( 'fadboilerplate-style', 'rtl', 'replace' );
-	} else {
-		// Serve CSS without Source Map
-		wp_enqueue_style( 'fadboilerplate-style', get_template_directory_uri() . '/dist/style.css', array(), _S_VERSION );
-		wp_style_add_data( 'fadboilerplate-style', 'rtl', 'replace' );
-	}
+	 $template_uri = get_stylesheet_uri();
+ 	if (defined('WP_DEBUG') && false === WP_DEBUG) {
+ 		$template_uri = get_template_directory_uri() . '/dist/style.css';
+ 	}
+ 	wp_enqueue_style( 'fadboilerplate-style', $template_uri, array(), _S_VERSION );
+ 	wp_style_add_data( 'fadboilerplate-style', 'rtl', 'replace' );
+
 
 
 	/**

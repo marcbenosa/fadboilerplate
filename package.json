@@ -68,6 +68,6 @@
     "prod:prefix:css": "postcss --use autoprefixer --replace dist/style.css --no-map && postcss --use autoprefixer --replace dist/woocommerce.css --no-map",
     "//": "--- RUNTIME SCRIPTS ---",
     "develop": "npm-watch",
-    "production": "npm run prod:compile:css && npm run prod:prefix:css"
+    "build": "npm run prod:compile:css && npm run prod:prefix:css"
   }
 }
