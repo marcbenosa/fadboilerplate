@@ -72,7 +72,7 @@ With NPM installed, simply run the following command:
 
 `npm install` to install packages. **Required to compile Bootstrap**.  
 `npm run develop` will run the scss linter, compiler, and autoprefixer, in that order, then will watch for changes.  
-`npm run build` will build a production version of assets optimized for faster and lighter payloads. Requires `define('WP_DEBUG', false);`
+`npm run build` will build a production version of assets optimized for faster and lighter payloads. Places generated files in the `dist/` directory. These files are used by setting `define('WP_DEBUG', false);` in `wp-config.php` - i.e. will use the optimized file (`dist/style.css`).
 
 #### Having trouble? Some of these commands may help
 *  `nvm current`
