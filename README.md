@@ -24,7 +24,8 @@ If you're developing on Mac/Linux `git config --global core.autocrlf input`
 
 ## Requires
 
-*  [Node.js](https://nodejs.org/)
+*  [Node.js](https://nodejs.org/) v10.0.0 or later
+*  NPM v6.9.0 or later
 *  [WP CLI](http://wp-cli.org/)
 *  LAMP Stack
 *  Python
