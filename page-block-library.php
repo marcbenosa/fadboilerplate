@@ -78,13 +78,12 @@ function block_library_block_wrapper( $block_content, $block ) {
 		$name = $block['blockName'];
 		if ( 'acf/' === substr( $name, 0, 4 ) ) {
 			$name = ucwords( substr( $name, 4 ) );
+			$content = '<h2 id="'. $name .'" class="block-library__name">' . $name . '</h2>';
+			$content .= '<div class="block-library__block">';
+			$content .= $block_content;
+			$content .= '</div>';
+			return $content;
 		}
-		$content = '<h2 id="'. $name .'" class="block-library__name">' . $name . '</h2>';
-		$content .= '<div class="block-library__block">';
-		$content .= $block_content;
-		$content .= '</div>';
-
-	    return $content;
 	}
 
 	return $block_content;
