@@ -73,6 +73,8 @@ wp-config.php
 save_database.sh
 import_database.sh
 *.sh
+!helpers/*.sh
+
 
 #IGNORE W3 Total Cache
 db.php
