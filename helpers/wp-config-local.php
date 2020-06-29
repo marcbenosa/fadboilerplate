@@ -19,6 +19,8 @@ define('WP_SITEURL', sprintf("http://%s", $debian_server));
 define('WP_HOME', sprintf("http://%s", $debian_server));
 define('FS_METHOD','direct');
 
+define('WP_MEMORY_LIMIT', '128M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */

@@ -4,7 +4,7 @@
 # URL:		JohnHimics.com
 
 #cd to the site root
-cd /var/www/public/{projectfolder};
+cd /var/www/public/{projectfolder}
 
 #create database
 mysql -uroot -proot  -e "CREATE DATABASE {projectfolder};"
@@ -98,33 +98,86 @@ wp option update page_for_posts $(wp post list --post_title="Blog" --fields=ID -
 # wp post create --post_type=post --post_title='Blog Post 4' --post_content='Blog Post 4 Content' --post_status=publish --comment_status='open'
 
 ## Install Plugins from WordPress.org via WP CLI
+wp plugin install aryo-activity-log
 wp plugin install backwpup
+wp plugin install bulk-block-converter
 wp plugin install duplicate-post
-wp plugin install google-analytics-for-wordpress
-wp plugin install jetpack
+wp plugin install easy-wp-smtp
+wp plugin install kadence-blocks
 wp plugin install ninja-forms
+wp plugin install redirection
 wp plugin install regenerate-thumbnails
+wp plugin install simply-show-hooks
+wp plugin install show-current-template
 wp plugin install tiny-compress-images
 wp plugin install tinymce-advanced
+wp plugin install w3-total-cache
 wp plugin install white-label-cms
 wp plugin install wordfence
+wp plugin install wp-admin-ui-customize
+wp plugin install wp-rollback
+wp plugin install wps-hide-login
 wp plugin install wordpress-seo
+wp plugin install acf-content-analysis-for-yoast-seo
+
+## Plugins we don't use that often anymore. Not on by default.
+# wp plugin install jetpack
 # wp plugin install wp-example-content
 # wp plugin install wp-help
 
 ## Install Plugins from FA Repository
-# ACF Pro
-# Monster Insights Pro
-# etc.
+# How to download from Google Drive
+# https://medium.com/@acpanjan/download-google-drive-files-using-wget-3c2c025a8b99
+# wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=[FILEID]' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=[FILEID]" -O [FILENAME] && rm -rf /tmp/cookies.txt
+cd /var/www/public/{projectfolder}/wp-content/plugins/
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1xBy-tOHbzQc468en9Zedm5htgt-ITMHI' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1xBy-tOHbzQc468en9Zedm5htgt-ITMHI" -O payload.zip && rm -rf /tmp/cookies.txt
+unzip payload.zip
+rm payload.zip
+cd /var/www/public/{projectfolder}
 
 ## Activate Plugins
-#   These are the development plugin to activate
-wp plugin activate advanced-custom-fields-pro
+# These are the development plugin to activate
+# wp plugin activate aryo-activity-log
 wp plugin activate backwpup
+wp plugin activate bulk-block-converter
 wp plugin activate duplicate-post
+# wp plugin activate easy-wp-smtp
+# wp plugin activate kadence-blocks
+wp plugin activate ninja-forms
+# wp plugin activate redirection
+wp plugin activate regenerate-thumbnails
+wp plugin activate simply-show-hooks
+wp plugin activate show-current-template
+wp plugin activate tiny-compress-images
 wp plugin activate tinymce-advanced
-wp plugin activate white-label-cms
-wp plugin activate wp-admin-ui-customize
+# wp plugin activate w3-total-cache
+# wp plugin activate white-label-cms
+# wp plugin activate wordfence
+# wp plugin activate wp-admin-ui-customize
+wp plugin activate wp-rollback
+# wp plugin activate wps-hide-login
+wp plugin install wordpress-seo
+wp plugin install acf-content-analysis-for-yoast-seo
+# From the payload
+wp plugin activate admin-columns-pro
+wp plugin activate ac-addon-buddypress
+wp plugin activate ac-addon-events-calendar
+wp plugin activate ac-addon-ninjaforms
+wp plugin activate ac-addon-pods
+wp plugin activate ac-addon-types
+wp plugin activate advanced-custom-fields-pro
+wp plugin activate cac-addon-acf
+wp plugin activate cac-addon-woocommerce
+wp plugin activate google-analytics-premium
+wp plugin activate ninja-forms-addon-manager
+wp plugin activate ninja-forms-conditionals
+wp plugin activate ninja-forms-multi-part
+wp plugin activate ninja-forms-save-progress
+wp plugin activate ninja-forms-style
+wp plugin activate ninja-forms-uploads
+wp plugin activate ninja-forms-white-label
+wp plugin activate wp-media-folder
+wp plugin activate wp-media-folder-addon
 
 ## update plugins
 wp plugin update --all
