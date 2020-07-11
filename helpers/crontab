@@ -1,0 +1,2 @@
+# Copy the database to the tmp folder on staging every hour.
+0 * * * * cd /var/www/firstascentstaging.com/public_html/fadboilerplate/tmp && wp db export stagingboilerplate.sql;
