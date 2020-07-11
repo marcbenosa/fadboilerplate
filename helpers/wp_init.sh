@@ -16,7 +16,21 @@ cp wp-content/themes/{projectfolder}/helpers/wp-config-local.php wp-config-local
 cp wp-config-local.php wp-config.php
 
 ##install
-wp core install --url="http://fad.local/{projectfolder}" --title="Site Title" --admin_user="fad-admin" --admin_password="D4d843B9ZsVoAsgy" --admin_email="info@firstascentdesign.com"
+#wp core install --url="http://fad.local/{projectfolder}" --title="Site Title" --admin_user="fad-admin" --admin_password="D4d843B9ZsVoAsgy" --admin_email="info@firstascentdesign.com"
+
+#Copy over the database from Staging Boilerplate instead.
+mkdir tmp/
+scp poof@165.227.116.120:/var/www/firstascentstaging.com/public_html/fadboilerplate/tmp/stagingboilerplate.sql tmp/stagingboilerplate.sql
+wp db import tmp/stagingboilerplate.sql
+
+## Replace the mentions of the boilerplate site url in the db
+wp search-replace "firstascentstaging.com/fadboilerplate" "fad.local/{projectfolder}" --skip-columns=guid
+
+## Update URL from the imported database
+wp option update url "http://fad.local/{projectfolder}"
+
+## Update Site Title from the imported database
+wp option update title "Site Title"
 
 ## remove tagline by default
 wp option update blogdescription ""
@@ -58,48 +72,14 @@ wp theme activate {projectfolder}
 #     page_for_posts		16
 #     page_on_front			14
 
-## Create Pages
-# Possible Attributes (from: https://codex.wordpress.org/Function_Reference/wp_insert_post)
-#   'post_content'   => [ <string> ] // The full text of the post.
-#   'post_name'      => [ <string> ] // The name (slug) for your post
-#   'post_title'     => [ <string> ] // The title of your post.
-#   'post_status'    => [ 'draft' | 'publish' | 'pending'| 'future' | 'private' | custom registered status ] // Default 'draft'.
-#   'post_type'      => [ 'post' | 'page' | 'link' | 'nav_menu_item' | custom post type ] // Default 'post'.
-#   'post_author'    => [ <user ID> ] // The user ID number of the author. Default is the current user ID.
-#   'ping_status'    => [ 'closed' | 'open' ] // Pingbacks or trackbacks allowed. Default is the option 'default_ping_status'.
-#   'post_parent'    => [ <post ID> ] // Sets the parent of the new post, if any. Default 0.
-#   'menu_order'     => [ <order> ] // If new post is a page, sets the order in which it should appear in supported menus. Default 0.
-#   'to_ping'        => // Space or carriage return-separated list of URLs to ping. Default empty string.
-#   'pinged'         => // Space or carriage return-separated list of URLs that have been pinged. Default empty string.
-#   'post_password'  => [ <string> ] // Password for post, if any. Default empty string.
-#   'post_excerpt'   => [ <string> ] // For all your post excerpt needs.
-#   'post_date'      => [ Y-m-d H:i:s ] // The time post was made.
-#   'post_date_gmt'  => [ Y-m-d H:i:s ] // The time post was made, in GMT.
-#   'comment_status' => [ 'closed' | 'open' ] // Default is the option 'default_comment_status', or 'closed'.
-#   'post_category'  => [ array(<category id>, ...) ] // Default empty.
-#   'tags_input'     => [ '<tag>, <tag>, ...' | array ] // Default empty.
-#   'tax_input'      => [ array( <taxonomy> => <array | string>, <taxonomy_other> => <array | string> ) ] // For custom taxonomies. Default empty.
-#   'page_template'  => [ <string> ] // Requires name of template file, eg template.php. Default empty.
-wp post create --post_type=page --post_title='Front Page' --post_content='Front Page Content' --post_status=publish --comment_status='closed'
-wp post create --post_type=page --post_title='About Page' --post_content='About Page Content' --post_status=publish --comment_status='closed'
-wp post create --post_type=page --post_title='Services Page' --post_content='Services Page Content' --post_status=publish --comment_status='closed'
-wp post create --post_type=page --post_title='Contact' --post_content='Contact Content' --post_status=publish --comment_status='closed'
-wp post create --post_type=page --post_title='Blog' --post_content='Blog Content' --post_status=publish --comment_status='closed'
-wp post create --post_type=page --post_title='Privacy Policy' --post_content='Privacy Policy Content' --post_status=publish --comment_status='closed'
-
 ## Set the Front page and Blog Page
 wp option update page_on_front $(wp post list --post_title="Front Page" --fields=ID --format=ids)
 wp option update page_for_posts $(wp post list --post_title="Blog" --fields=ID --format=ids)
 
-## Create Sample Posts
-# wp post create --post_type=post --post_title='Blog Post 1' --post_content='Blog Post 1 Content' --post_status=publish --comment_status='open'
-# wp post create --post_type=post --post_title='Blog Post 2' --post_content='Blog Post 2 Content' --post_status=publish --comment_status='open'
-# wp post create --post_type=post --post_title='Blog Post 3' --post_content='Blog Post 3 Content' --post_status=publish --comment_status='open'
-# wp post create --post_type=post --post_title='Blog Post 4' --post_content='Blog Post 4 Content' --post_status=publish --comment_status='open'
-
 ## Install Plugins from WordPress.org via WP CLI
 wp plugin install aryo-activity-log
 wp plugin install backwpup
+wp plugin isntall block-options
 wp plugin install bulk-block-converter
 wp plugin install duplicate-post
 wp plugin install easy-wp-smtp
@@ -139,6 +119,7 @@ cd /var/www/public/{projectfolder}
 # These are the development plugin to activate
 # wp plugin activate aryo-activity-log
 wp plugin activate backwpup
+wp plugin activate block-options
 wp plugin activate bulk-block-converter
 wp plugin activate duplicate-post
 # wp plugin activate easy-wp-smtp
