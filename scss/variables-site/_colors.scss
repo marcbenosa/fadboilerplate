@@ -31,3 +31,27 @@ $warning:       $yellow;
 $danger:        $red;
 $light:         $gray-100;
 $dark:          $gray-800;
+
+// // Gutenberg color options
+// // -- see editor-color-palette in acf-blocks.php
+// $gutenberg-colors: ( wi-black, $wi-black ),
+//     ( green, $fadboilerplate-green ),
+//     ( darkgreen, $fadboilerplate-darkgreen ),
+//     ( darkblue, $fadboilerplate-darkblue ),
+//     ( lightblue, $fadboilerplate-lightblue ),
+//     ( lightgray, $fadboilerplate-lightgray ),
+//     ( gray, $fadboilerplate-gray ),
+//     ( backgroundgray, $fadboilerplate-backgroundgray ),
+//     ( black, #000 );
+
+// /* Color Options */
+// @each $gutenberg-name, $gutenberg-color in $gutenberg-colors {
+
+//     .has-#{$gutenberg-name}-color {
+//         color: $gutenberg-color;
+//     }
+
+//     .has-#{$gutenberg-name}-background-color {
+//         background-color: $gutenberg-color;
+//     }
+// }
