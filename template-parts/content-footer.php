@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package fadboilerplate
+ * @package wilminvest
  */
 
 $footer_logo  = get_field('company_logo_footer', 'options')['url'];
@@ -34,29 +34,40 @@ $newsletter   = get_field('newsletter_shortcode', 'options');
                 </a>
             </div>
             <div class="col-sm-3">
-                <div class="footer__address">
+                <?php if($address["location1"] !== ""): var_dump($address); ?>
+            	<div class="footer__address">
                     <div><?php echo esc_html( $address['location1'] );?></div>
                     <div><?php echo esc_html( $address['location2'] );?></div>
                 </div>
+                <?php endif; ?>
+
                 <?php if( have_rows('operational_hours', 'options') ): ?>
                     <div class="footer__operational">
                     <?php while ( have_rows('operational_hours', 'options') ) : the_row();
                         $days  = get_sub_field('days');
                         $hours = get_sub_field('hours');
-                        ?>
-                        <div class="d-block">
-                            <span><?php echo esc_html( $days ); ?></span>: <span><?php echo esc_html( $hours ); ?></span>
-                        </div>
+                        if($days !== ""): ?>
+	                        <div class="d-block">
+	                            <span><?php echo esc_html( $days ); ?></span>: <span><?php echo esc_html( $hours ); ?></span>
+	                        </div>
+                    	<?php endif; ?>
                     <?php endwhile; ?>
                     </div>
                 <?php endif; ?>
+
                 <div class="footer__contact">
-                    <a class="d-block" href="mailto:<?php echo esc_attr( $contact['email'] ); ?>"><?php echo esc_html( $contact['email'] );?></a>
-                    <a class="d-block" href="tel:<?php echo esc_attr( $contact['phone'] ); ?>">p <?php echo esc_html( $contact['phone'] );?></a>
-                    <span class="d-block">f <?php echo esc_html( $contact['fax'] );?></span>
+                    <?php if($contact['email'] !== ""): ?>
+                    	<a class="d-block" href="mailto:<?php echo esc_attr( $contact['email'] ); ?>"><?php echo esc_html( $contact['email'] );?></a>
+                	<?php endif; ?>
+                    <?php if($contact['phone'] !== ""): ?>
+                    	<a class="d-block" href="tel:<?php echo esc_attr( $contact['phone'] ); ?>">p <?php echo esc_html( $contact['phone'] );?></a>
+                	<?php endif; ?>
+                    <?php if($contact['fax'] !== ""): ?>
+                    	<span class="d-block">f <?php echo esc_html( $contact['fax'] );?></span>
+                	<?php endif; ?>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 footer-nav-menu">
                 <?php wp_nav_menu( array(
                     'theme_location'  => 'footer',
                     'menu_id'         => 'footer-menu',
