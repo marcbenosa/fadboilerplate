@@ -2,21 +2,23 @@
 # wp_init.sh
 # Author: 	John Himics
 # URL:		JohnHimics.com
+#
+# To Run: bash wp_init.sh projectname
 
 #cd to the site root
-cd /var/www/public/{projectfolder}
+cd /var/www/public/$1
 
 #create database
-mysql -uroot -proot  -e "CREATE DATABASE {projectfolder};"
-mysql -uroot -proot {projectfolder} -e "GRANT ALL PRIVILEGES ON {projectfolder}.* TO \"{projectfolder}\"@\"localhost\" IDENTIFIED BY \"{projectfolder}\";"
-mysql -uroot -proot {projectfolder} -e "FLUSH PRIVILEGES;"
+mysql -uroot -proot  -e "CREATE DATABASE $1;"
+mysql -uroot -proot $1 -e "GRANT ALL PRIVILEGES ON $1.* TO \"$1\"@\"localhost\" IDENTIFIED BY \"$1\";"
+mysql -uroot -proot $1 -e "FLUSH PRIVILEGES;"
 
 ##copy the wp-config file
-cp wp-content/themes/{projectfolder}/helpers/wp-config-local.php wp-config-local.php
+cp wp-content/themes/$1/helpers/wp-config-local.php wp-config-local.php
 cp wp-config-local.php wp-config.php
 
 ##install
-#wp core install --url="http://fad.local/{projectfolder}" --title="Site Title" --admin_user="fad-admin" --admin_password="D4d843B9ZsVoAsgy" --admin_email="info@firstascentdesign.com"
+#wp core install --url="http://fad.local/$1" --title="Site Title" --admin_user="fad-admin" --admin_password="D4d843B9ZsVoAsgy" --admin_email="info@firstascentdesign.com"
 
 #Copy over the database from Staging Boilerplate instead.
 mkdir tmp/
@@ -24,10 +26,10 @@ scp poof@165.227.116.120:/var/www/firstascentstaging.com/public_html/fadboilerpl
 wp db import tmp/stagingboilerplate.sql
 
 ## Replace the mentions of the boilerplate site url in the db
-wp search-replace "firstascentstaging.com/fadboilerplate" "fad.local/{projectfolder}" --skip-columns=guid
+wp search-replace "firstascentstaging.com/fadboilerplate" "fad.local/$1" --skip-columns=guid
 
 ## Update URL from the imported database
-wp option update url "http://fad.local/{projectfolder}"
+wp option update url "http://fad.local/$1"
 
 ## Update Site Title from the imported database
 wp option update title "Site Title"
@@ -42,7 +44,7 @@ wp core update
 wp rewrite structure '/%postname%/'
 
 ## activate the theme
-wp theme activate {projectfolder}
+wp theme activate $1
 
 ## set options
 #   Usage
@@ -109,11 +111,11 @@ wp plugin install acf-content-analysis-for-yoast-seo
 # How to download from Google Drive
 # https://medium.com/@acpanjan/download-google-drive-files-using-wget-3c2c025a8b99
 # wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=[FILEID]' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=[FILEID]" -O [FILENAME] && rm -rf /tmp/cookies.txt
-cd /var/www/public/{projectfolder}/wp-content/plugins/
+cd /var/www/public/$1/wp-content/plugins/
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1xBy-tOHbzQc468en9Zedm5htgt-ITMHI' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1xBy-tOHbzQc468en9Zedm5htgt-ITMHI" -O payload.zip && rm -rf /tmp/cookies.txt
 unzip payload.zip
 rm payload.zip
-cd /var/www/public/{projectfolder}
+cd /var/www/public/$1
 
 ## Activate Plugins
 # These are the development plugin to activate

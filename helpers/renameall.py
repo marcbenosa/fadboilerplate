@@ -1,8 +1,14 @@
-import os
+# python renameall.py projectname
 
-directory = '/var/www/public/{projectname}/wp-content/themes/{projectname}'
+import os
+import sys
+
+projectname = sys.argv[1]
+
+directory = '/var/www/public/{0}/wp-content/themes/{0}'.format(projectname)
 find = "fadboilerplate"
-replace = "{projectname}"
+replace = projectname
+ignoreFiles = ["renameall.py", "wp_init.sh"]
 
 # walk through the directory from bottom up
 for root, dirs, filenames in os.walk(directory):
@@ -10,7 +16,7 @@ for root, dirs, filenames in os.walk(directory):
     dirs[:] = [d for d in dirs if d != '.git']  # skip .git dirs
     for filename in filenames:
         path1 = os.path.join(root, filename)
-        if filename != "renameall.py":  # name of the script. Don't change yourself!
+        if filename not in ignoreFiles:
 
             # search and replace within files themselves
             filepath = os.path.join(root, filename)
