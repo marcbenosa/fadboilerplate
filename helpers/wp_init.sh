@@ -81,7 +81,7 @@ wp option update page_for_posts $(wp post list --post_title="Blog" --fields=ID -
 ## Install Plugins from WordPress.org via WP CLI
 wp plugin install aryo-activity-log
 wp plugin install backwpup
-wp plugin isntall block-options
+wp plugin install block-options
 wp plugin install bulk-block-converter
 wp plugin install duplicate-post
 wp plugin install easy-wp-smtp
