@@ -14,7 +14,7 @@
  * @package WordPress
  */
 
-$debian_server = "fad.local/{sitename}";
+$debian_server = "fad.local/fadboilerplate";
 define('WP_SITEURL', sprintf("http://%s", $debian_server));
 define('WP_HOME', sprintf("http://%s", $debian_server));
 define('FS_METHOD','direct');
@@ -24,9 +24,9 @@ define('WP_MAX_MEMORY_LIMIT', '256M');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', '{sitename}');
-define('DB_USER', '{sitename}');
-define('DB_PASSWORD', '{sitename}');
+define('DB_NAME', 'fadboilerplate');
+define('DB_USER', 'fadboilerplate');
+define('DB_PASSWORD', 'fadboilerplate');
 define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
