@@ -1,27 +1,4 @@
-p {
-	line-height: 2.25rem;
-	margin: 0 0 1em;
-	font-family: $font-default;
-}
-
-blockquote {
-	width: 75%;
-	margin: 1em auto;
-	padding: 0.5em 10px;
-	border-left: none;
-	text-align: center;
-
-	p {
-		display: inline;
-		text-align: center;
-		font-size: $default-size + 0.25rem;
-	}
-}
-
-address {
-	margin: 0 0 1.5em;
-}
-
+// Copy 
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
