@@ -39,5 +39,5 @@ $footer_logo  = get_field('company_logo_footer', 'options')['url'];
     <!-- #site-navigation -->
 </header>
 
-<div id="content" class="site-content">
+<div id="content" class="site-content container">
     <div class="site-header__spacer top"></div>
