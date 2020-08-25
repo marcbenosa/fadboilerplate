@@ -1,22 +1,15 @@
 // stylelint-disable value-keyword-case
-$font__main: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+$font-family-sans-serif: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
 // stylelint-enable value-keyword-case
-$font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-$font__pre: "Courier 10 Pitch", courier, monospace;
-$font__line-height-body: 1.5;
-$font__line-height-pre: 1.6;
+$font-family-monospace: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 
-$base-font-size: 16px;
-$base-font-size-mobile: 14px;
+$enable-responsive-font-sizes: true;
+
 $default-size: 1rem;
-$h1-size: 3rem;
-$h2-size: 2.5rem;
-$h3-size: 2rem;
-$h4-size: 1.5rem;
-$h5-size: 1.15rem;
+$h1-font-size: 3rem;
+$h2-font-size: 2.5rem;
+$h3-font-size: 2rem;
+$h4-font-size: 1.5rem;
+$h5-font-size: 1.15rem;
 $button-size: 1.25rem;
 $p-subtitle-size: 0.85rem;
-
-/* Font family declarations */
-$font-default: arial, sans-serif;
-

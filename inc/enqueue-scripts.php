@@ -44,13 +44,17 @@ function fadboilerplate_scripts() {
 	// GSAP
 	// https://greensock.com/get-started/#loading-gsap
 	// By CDN
-	wp_register_script( "gsap-js", "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js", false, NULL, 'all' );
+	wp_register_script( "gsap-js", "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js", false, NULL, true );
 	wp_enqueue_script( 'gsap-js' );
 
 	// ScrollMagic
 	// https://scrollmagic.io/
-	wp_register_script( "scrollmagic-js", "//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js", false, NULL, 'all' );
+	wp_register_script( "scrollmagic-js", "//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.js", false, NULL, true );
 	wp_enqueue_script( 'scrollmagic-js' );
+
+    // Required Plugin
+    wp_register_script( "scrollmagic-gsap-js", "//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js", false, NULL, true );
+	wp_enqueue_script( 'scrollmagic-gsap-js' );
 	// Debugging script
 	// wp_register_script( "scrollmagic-debug-js", "//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js", false, NULL, 'all' );
 	// wp_enqueue_script( 'scrollmagic-debug-js' );

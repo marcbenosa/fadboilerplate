@@ -17,3 +17,24 @@
 
 	margin-bottom: 1.5em;
 }
+
+.alignfull {
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+}
+
+.alignwide {
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+}
+
+@media (min-width: $tablet-size) {
+
+	.alignwide {
+		width: calc(100% + 20vw);
+		margin-left: -10vw;
+		margin-right: -10vw;
+	}
+}

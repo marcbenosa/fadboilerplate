@@ -19,8 +19,6 @@ This theme, like WordPress, is licensed under the GPL.
 ----------------------------------------------------------------
 # Variables
 # Mixins
-# Bourbon https://www.bourbon.io/docs/latest/
-# Normalize https://necolas.github.io/normalize.css/
 # Typography
 # Elements
 # Forms
@@ -43,13 +41,7 @@ This theme, like WordPress, is licensed under the GPL.
 ***********************************************************************/
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
-@import "bourbon";
 @import "bootstrap";
-
-/***********************************************************************
-# Normalize
-***********************************************************************/
-@import "normalize";
 
 /***********************************************************************
 # Typography
@@ -70,6 +62,7 @@ This theme, like WordPress, is licensed under the GPL.
 # Layout
 ***********************************************************************/
 // @import "layout/content-sidebar";
+@import "layout/structure";
 @import "layout/header";
 @import "layout/footer";
 // @import "layout/no-sidebar";
