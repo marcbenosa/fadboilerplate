@@ -46,25 +46,54 @@ function fouc() {
   $('html').removeClass('no-js').addClass('js');
 }
 
+// Add all scroll functions here
+function scroll() {
+	main_navigation_scroll();
+};
+
+// Optimize the scroll events.
+function optimizeScroll() {
+	var scrollWaiting = false, endScrollHandle;
+	$(window).scroll(function () {
+	  if (scrollWaiting) {
+	    return;
+	  }
+	  scrollWaiting = true;
+
+	  // clear previous scheduled endScrollHandle
+	  clearTimeout(endScrollHandle);
+
+	  scroll();
+
+	  setTimeout(function () {
+	    scrollWaiting = false;
+	  }, 100);
+
+	  // schedule an extra execution of scroll() after 200ms
+	  // in case the scrolling stops in next 100ms
+	  endScrollHandle = setTimeout(function () {
+	    scroll();
+	  }, 200);
+	});
+}
+
 /*******************************************
  *  Custom Functions for the theme
  *******************************************/
 
 function main_navigation_scroll() {
 
-  $(window).scroll(function() {
-    var scrollTop = $(window).scrollTop();
-    var $site_header = $(".site-header");
-		var $site_header_spacer = $(".site-header__spacer");
+	var scrollTop = $(window).scrollTop();
+	var $site_header = $(".site-header");
+	var $site_header_spacer = $(".site-header__spacer");
 
-    if (scrollTop > 0) {
-      $site_header.removeClass("top");
-			$site_header_spacer.removeClass("top");
-    } else {
-      $site_header.addClass("top");
-			$site_header_spacer.addClass("top");
-    }
-  });
+	if (scrollTop > 0) {
+		$site_header.removeClass("top");
+		$site_header_spacer.removeClass("top");
+	} else {
+		$site_header.addClass("top");
+		$site_header_spacer.addClass("top");
+	}
 }
 
 function match_heights_init() {
@@ -217,7 +246,7 @@ function scrollMagicGsap() {
  */
 $(document).ready(function() {
   fouc();
-  main_navigation_scroll();
+  optimizeScroll();
   match_heights_init();
   anchor_smooth_scrolling();
   backtotop();
