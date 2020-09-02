@@ -5,41 +5,6 @@
 /*******************************************
  *  Helper Functions
  *******************************************/
-function is_desktop() {
-	var $indicator = $("#media-query-detector").height();
-	if( $indicator == 3) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-function is_mobile() {
-	var $indicator = $("#media-query-detector").height();
-	if( $indicator < 3) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-function is_tablet() {
-	var $indicator = $("#media-query-detector").height();
-	if( $indicator == 2) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-function is_phone() {
-	var $indicator = $("#media-query-detector").height();
-	if( $indicator == 1) {
-		return true;
-	} else {
-		return false;
-	}
-}
 
 // Handles flash of unstyled content.
 function fouc() {
@@ -96,44 +61,44 @@ function main_navigation_scroll() {
 	}
 }
 
-function match_heights_init() {
-  /**
-  * Match Height Calls
-  * use attr data-mh="group-name" to group
-  */
-  var matchHeightTitle  = $(".match-height-title");
-  var matchHeightContent = $(".match-height-content");
-
-  if( $(".match-height-row").length ) {
-    $(".match-height-row").matchHeight({
-        byRow: true
-    });
-  }
-
-  if( $(".match-height").length ) {
-    $(".match-height").matchHeight({
-        byRow: false
-    });
-  }
-
-  if( $(".match-height-rows").length ) {
-    $(".match-height-rows").matchHeight({
-        byRow: true
-    });
-  }
-
-  if( matchHeightTitle.length ) {
-    matchHeightTitle.matchHeight({
-        byRow: true
-    });
-  }
-
-  if( matchHeightContent.length ) {
-    matchHeightContent.matchHeight({
-        byRow: true
-    });
-  }
-}
+// function match_heights_init() {
+//   /**
+//   * Match Height Calls
+//   * use attr data-mh="group-name" to group
+//   */
+//   var matchHeightTitle  = $(".match-height-title");
+//   var matchHeightContent = $(".match-height-content");
+//
+//   if( $(".match-height-row").length ) {
+//     $(".match-height-row").matchHeight({
+//         byRow: true
+//     });
+//   }
+//
+//   if( $(".match-height").length ) {
+//     $(".match-height").matchHeight({
+//         byRow: false
+//     });
+//   }
+//
+//   if( $(".match-height-rows").length ) {
+//     $(".match-height-rows").matchHeight({
+//         byRow: true
+//     });
+//   }
+//
+//   if( matchHeightTitle.length ) {
+//     matchHeightTitle.matchHeight({
+//         byRow: true
+//     });
+//   }
+//
+//   if( matchHeightContent.length ) {
+//     matchHeightContent.matchHeight({
+//         byRow: true
+//     });
+//   }
+// }
 
 function anchor_smooth_scrolling() {
   var spacing = 86;
@@ -220,26 +185,26 @@ function backtotop() {
 }
 
 // ScrollMagic And GreenSock Animation
-function scrollMagicGsap() {
-
-  var n = new ScrollMagic.Controller;
-  $('.fademein').each(function() {
-
-    var tween = TweenMax.from (
-      this, 0.75, {autoAlpha:0, y:100, delay:0.1, ease: Power1.easeInOut}
-    );
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      reverse: false,
-      triggerHook: 1.3
-    })
-    .setTween(tween)
-    .addTo(n);
-
-  });
-
-}
+// function scrollMagicGsap() {
+//
+//   var n = new ScrollMagic.Controller;
+//   $('.fademein').each(function() {
+//
+//     var tween = TweenMax.from (
+//       this, 0.75, {autoAlpha:0, y:100, delay:0.1, ease: Power1.easeInOut}
+//     );
+//
+//     new ScrollMagic.Scene({
+//       triggerElement: this,
+//       reverse: false,
+//       triggerHook: 1.3
+//     })
+//     .setTween(tween)
+//     .addTo(n);
+//
+//   });
+//
+// }
 
 /**
  * On Loads
@@ -247,8 +212,8 @@ function scrollMagicGsap() {
 $(document).ready(function() {
   fouc();
   optimizeScroll();
-  match_heights_init();
+  // match_heights_init();
   anchor_smooth_scrolling();
   backtotop();
-  scrollMagicGsap();
+  // scrollMagicGsap();
 });
