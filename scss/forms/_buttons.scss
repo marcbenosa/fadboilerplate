@@ -10,12 +10,12 @@
 
 		&:hover {
 			background-color: lighten($blue, 5%);
-			color: white;
+			color: $white;
 		}
 
 		&:focus,
 		&:active {
-			color: white;
+			color: $white;
 		}
 
 		&.nf-element {

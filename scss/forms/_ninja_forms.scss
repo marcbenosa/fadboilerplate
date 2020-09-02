@@ -72,11 +72,11 @@
 		textarea {
 			border: 1px solid transparent;
 			border-radius: 5px;
-			color: black;
+			color: $black;
 			padding: 0.75rem 1rem;
 
 			&:placeholder {
-				color: black;
+				color: $black;
 			}
 		}
 
@@ -88,7 +88,7 @@
 
 			input,
 			textarea {
-				border-color: red;
+				border-color: $red;
 			}
 		}
 

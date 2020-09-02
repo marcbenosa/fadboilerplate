@@ -43,7 +43,7 @@
 		&-icon::before,
 		&-icon::after {
 			position: absolute;
-			background-color: black;
+			background-color: $black;
 			border-radius: $border-radius;
 			width: 36px;
 			height: 6px;

@@ -25,6 +25,14 @@
 	}
 }
 
+.gutter {
+	padding: 8rem 0;
+
+	@media (max-width: $tablet-size) {
+		padding: 5rem 0;
+	}
+}
+
 /**
  * Max width classes
  */
