@@ -4,7 +4,6 @@
  */
 
 $header_logo  = get_field('company_logo', 'options')['url'];
-$footer_logo  = get_field('company_logo_footer', 'options')['url'];
 
 //method="get" action="<?php echo home_url();  " name="s"
 
