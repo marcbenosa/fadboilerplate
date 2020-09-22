@@ -61,10 +61,10 @@
     "prefix:css": "postcss --use autoprefixer --replace style.css && postcss --use autoprefixer --replace woocommerce.css",
     "bundle": "node bundle.js",
     "watch:scss": "npm run lint:scss && npm run compile:css && npm run prefix:css",
-    "prod:scss:main": "node-sass scss/style.scss dist/style.css --output-style compressed",
-    "prod:scss:woocommerce": "node-sass scss/woocommerce.scss dist/woocommerce.css --output-style compressed",
+    "prod:scss:main": "node-sass scss/style.scss style-dist.css --output-style compressed",
+    "prod:scss:woocommerce": "node-sass scss/woocommerce.scss woocommerce-dist.css --output-style compressed",
     "prod:compile:css": "npm run prod:scss:main && npm run prod:scss:woocommerce",
-    "prod:prefix:css": "postcss --use autoprefixer --replace dist/style.css --no-map && postcss --use autoprefixer --replace dist/woocommerce.css --no-map",
+    "prod:prefix:css": "postcss --use autoprefixer --replace style-dist.css --no-map && postcss --use autoprefixer --replace woocommerce-dist.css --no-map",
     "develop": "npm-watch",
     "build": "npm run prod:compile:css && npm run prod:prefix:css"
   }
