@@ -34,6 +34,7 @@ This theme, like WordPress, is licensed under the GPL.
 # Main Styles and Page Styles
 # Custom Post Type Styles
 # Block Styles
+# WooCommerce
 ***********************************************************************/
 
 /***********************************************************************
@@ -102,3 +103,8 @@ Custom Post Type Styles
 Block Styles
 ***********************************************************************/
 @import "../blocks/blocks";
+
+/***********************************************************************
+WooCommerce
+***********************************************************************/
+@import "woocommerce";

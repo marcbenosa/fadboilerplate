@@ -86,6 +86,99 @@ if ( ! function_exists( 'fadboilerplate_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
+
+		//https://weblines.com.au/gutenberg-blocks-wide-alignment-full-width/
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'wp-block-styles' );
+
+
+		// Disable Custom Colors
+		add_theme_support( 'disable-custom-colors' );
+
+		// Editor Color Palette
+		add_theme_support( 'editor-color-palette', array(
+		 	array(
+		 		'name'  => __( 'Light Blue', 'fadboilerplate' ),
+		 		'slug'  => 'light-blue',
+		 		'color'	=> '#28b0e5',
+			),
+			array(
+		 		'name'  => __( 'Blue', 'fadboilerplate' ),
+		 		'slug'  => 'blue',
+		 		'color'	=> '#146e9a',
+			),
+			array(
+		 		'name'  => __( 'Black', 'fadboilerplate' ),
+		 		'slug'  => 'black',
+		 		'color'	=> '#000000',
+			),
+			array(
+		 		'name'  => __( 'Dark Gray', 'fadboilerplate' ),
+		 		'slug'  => 'dark-gray',
+		 		'color'	=> '#3f3f3f',
+			),
+			array(
+		 		'name'  => __( 'Gray', 'fadboilerplate' ),
+		 		'slug'  => 'gray',
+		 		'color'	=> '#6c757d',
+			),
+			array(
+		 		'name'  => __( 'Light Gray', 'fadboilerplate' ),
+		 		'slug'  => 'light-gray',
+		 		'color'	=> '#f8f9fa',
+			),
+			array(
+		 		'name'  => __( 'White', 'fadboilerplate' ),
+		 		'slug'  => 'white',
+		 		'color'	=> '#ffffff',
+			),
+		) );
+
+		add_theme_support( 'disable-custom-font-sizes' );
+
+		// Adds support for editor font sizes.
+		add_theme_support( 'editor-font-sizes', array(
+			array(
+				'name'      => __( 'small', 'fadboilerplate' ),
+				'shortName' => __( 'S', 'fadboilerplate' ),
+				'size'      => 14,
+				'slug'      => 'small'
+			),
+			array(
+				'name'      => __( 'regular', 'fadboilerplate' ),
+				'shortName' => __( 'M', 'fadboilerplate' ),
+				'size'      => 16,
+				'slug'      => 'regular'
+			),
+			array(
+				'name'      => __( 'large', 'fadboilerplate' ),
+				'shortName' => __( 'L', 'fadboilerplate' ),
+				'size'      => 24,
+				'slug'      => 'large'
+			),
+			array(
+				'name'      => __( 'larger', 'fadboilerplate' ),
+				'shortName' => __( 'XL', 'fadboilerplate' ),
+				'size'      => 32,
+				'slug'      => 'larger'
+			),
+			array(
+				'name'      => __( 'huge', 'fadboilerplate' ),
+				'shortName' => __( 'Huge', 'fadboilerplate' ),
+				'size'      => 48,
+				'slug'      => 'huge'
+			),
+			array(
+				'name'      => __( 'display', 'fadboilerplate' ),
+				'shortName' => __( 'Display', 'fadboilerplate' ),
+				'size'      => 72,
+				'slug'      => 'display'
+			),
+		) );
+
+		// Add editor styles
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'editor.css' );
 	}
 endif;
 add_action( 'after_setup_theme', 'fadboilerplate_setup' );

@@ -1,0 +1,16 @@
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+@import "bootstrap";
+@import "typography/typography";
+@import "layout/structure";
+@import "../blocks/blocks";
+
+html {
+	background-color: $white !important;
+	padding: 0;
+}
+
+.wp-block:not([data-align="full"]):not([data-align="wide"]) {
+
+	@extend .container;
+}

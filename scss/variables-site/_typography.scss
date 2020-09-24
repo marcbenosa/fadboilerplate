@@ -5,11 +5,19 @@ $font-family-monospace: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", mon
 
 $enable-responsive-font-sizes: true;
 
-$default-size: 1rem;
-$h1-font-size: 3rem;
-$h2-font-size: 2.5rem;
-$h3-font-size: 2rem;
-$h4-font-size: 1.5rem;
-$h5-font-size: 1.15rem;
-$button-size: 1.25rem;
-$p-subtitle-size: 0.85rem;
+$small-font-size:             14px;
+$default-size:                1rem;
+
+$h1-font-size:                3rem;
+$h2-font-size:                2.5rem;
+$h3-font-size:                2rem;
+$h4-font-size:                1.5rem;
+$h5-font-size:                1.15rem;
+
+$display1-size:               6rem !default;
+$display2-size:               5.5rem !default;
+$display3-size:               4.5rem !default;
+$display4-size:               3.5rem !default;
+
+$button-size:                 1.25rem;
+$p-subtitle-size:             0.85rem;

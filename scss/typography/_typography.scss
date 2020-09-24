@@ -1,7 +1,21 @@
-body {
-	font-size: 16px;
-	overflow: auto;
-}
-
 @import "headings";
 @import "copy";
+
+//
+// Custom font sizes must also be updated in theme-supports.php
+// 
+.has-large-font-size {
+	font-size: $h4-font-size;
+}
+
+.has-larger-font-size {
+	font-size: $h3-font-size;
+}
+
+.has-huge-font-size {
+	font-size: $h1-font-size;
+}
+
+.has-display-font-size {
+	font-size: $display3-size;
+}

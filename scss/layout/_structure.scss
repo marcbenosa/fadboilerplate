@@ -1,3 +1,9 @@
+body {
+	font-size: 16px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
 /* Minimum site size for very small pages */
 .site-content {
 	min-height: 85vh;

@@ -12,7 +12,7 @@ $gray-900: #212529;
 $black:    #000;
 
 $blue:       #103694;
-$blue-light: #018ac6;
+$light-blue: #018ac6;
 $indigo:     #6610f2;
 $purple:     #6f42c1;
 $pink:       #e83e8c;
@@ -23,7 +23,7 @@ $green:      #28a745;
 $teal:       #20c997;
 $cyan:       #17a2b8;
 
-$primary:       $blue-light;
+$primary:       $light-blue;
 $secondary:     $blue;
 $success:       $green;
 $info:          $cyan;
@@ -32,26 +32,34 @@ $danger:        $red;
 $light:         $gray-100;
 $dark:          $gray-800;
 
-// // Gutenberg color options
-// // -- see editor-color-palette in acf-blocks.php
-// $gutenberg-colors: ( wi-black, $wi-black ),
-//     ( green, $fadboilerplate-green ),
-//     ( darkgreen, $fadboilerplate-darkgreen ),
-//     ( darkblue, $fadboilerplate-darkblue ),
-//     ( lightblue, $fadboilerplate-lightblue ),
-//     ( lightgray, $fadboilerplate-lightgray ),
-//     ( gray, $fadboilerplate-gray ),
-//     ( backgroundgray, $fadboilerplate-backgroundgray ),
-//     ( black, #000 );
+$colors: map-merge((
+	"blue":       $blue,
+	"light-blue": $light-blue,
+	"white":      $white,
+	"gray":       $gray-600,
+	"gray-dark":  $gray-800
+), $colors);
 
-// /* Color Options */
-// @each $gutenberg-name, $gutenberg-color in $gutenberg-colors {
+$theme-colors: map-merge((
+	"primary":    $primary,
+	"secondary":  $secondary,
+	"success":    $success,
+	"info":       $info,
+	"warning":    $warning,
+	"danger":     $danger,
+	"light":      $light,
+	"dark":       $dark
+), $theme-colors);
 
-//     .has-#{$gutenberg-name}-color {
-//         color: $gutenberg-color;
-//     }
 
-//     .has-#{$gutenberg-name}-background-color {
-//         background-color: $gutenberg-color;
-//     }
-// }
+/* Color Options */
+@each $gutenberg-name, $gutenberg-color in $colors {
+
+	.has-#{$gutenberg-name}-color {
+		color: $gutenberg-color;
+	}
+
+	.has-#{$gutenberg-name}-background-color {
+		background-color: $gutenberg-color;
+	}
+}

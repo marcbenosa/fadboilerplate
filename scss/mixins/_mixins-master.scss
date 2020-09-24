@@ -10,58 +10,6 @@
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
 
-/***********************************************************************
-02 - Mix-ins and Utility Classes
-***********************************************************************/
-
-@mixin vertical-align {
-	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
-} //@include vertical-align
-
-@mixin transform-scale($x:1, $y:1) {
-	-webkit-transform: scale($x, $y);
-	-moz-transform: scale($x, $y);
-	-o-transform: scale($x, $y);
-	-ms-transform: scale($x, $y);
-	transform: scale($x, $y);
-}
-
-@mixin transition($transition-property, $transition-time, $method) {
-	-webkit-transition: $transition-property $transition-time $method;
-	-moz-transition: $transition-property $transition-time $method;
-	-ms-transition: $transition-property $transition-time $method;
-	-o-transition: $transition-property $transition-time $method;
-	transition: $transition-property $transition-time $method;
-}
-
-.bg-image-cover {
-
-	@include transition(all, 0.6s, cubic-bezier(0.19, 1, 0.22, 1));
-}
-
-.bg-image-cover-padded {
-
-	@include transition(all, 0.6s, cubic-bezier(0.19, 1, 0.22, 1));
-
-	&::after {
-
-		/*  set the padding top % to match image aspect ratio */
-		padding-top: 100%;
-		display: block;
-		content: "";
-	}
-}
-
-@mixin center-item {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
 
 @mixin overlay {
 
@@ -75,14 +23,6 @@
 		position: absolute;
 		z-index: 1;
 	}
-}
-
-@mixin flex-center {
-
-	@include display(flex);
-	@include flex-direction(row);
-	@include align-items(center);
-	@include justify-content(center);
 }
 
 #media-query-detector {
@@ -102,39 +42,3 @@
 	cursor: auto;
 	pointer-events: none;
 }
-
-// .css-triangle-up {
-// 	width: 0;
-// 	height: 0;
-// 	border-left: 5px solid transparent;
-// 	border-right: 5px solid transparent;
-//
-// 	border-bottom: 5px solid black;
-// }
-//
-// .css-triangle-down {
-// 	width: 0;
-// 	height: 0;
-// 	border-left: 20px solid transparent;
-// 	border-right: 20px solid transparent;
-//
-// 	border-top: 20px solid #f00;
-// }
-//
-// .css-triangle-right {
-// 	width: 0;
-// 	height: 0;
-// 	border-top: 60px solid transparent;
-// 	border-bottom: 60px solid transparent;
-//
-// 	border-left: 60px solid green;
-// }
-//
-// .css-triangle-left {
-// 	width: 0;
-// 	height: 0;
-// 	border-top: 10px solid transparent;
-// 	border-bottom: 10px solid transparent;
-//
-// 	border-right: 10px solid blue;
-// }
