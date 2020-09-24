@@ -16,13 +16,12 @@
 # ignore all files starting with .
 .*
 
-# track this file .gitignore (i.e. do NOT ignore it)
+# Track these
 !.gitignore
-# track .browserslistrc file (i.e. do NOT ignore it)
 !.browserslistrc
-# track .editorconfig file (i.e. do NOT ignore it)
 !.editorconfig
-# track readme.md in the root (i.e. do NOT ignore it)
+!.eslintrc
+!.stylelintrc.json
 !readme.md
 !README.md
 !CHANGELOG.md
