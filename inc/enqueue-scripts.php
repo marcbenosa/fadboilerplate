@@ -17,7 +17,7 @@ function fadboilerplate_scripts() {
      * Use CSS source map while running in debug mode.
      * Otherwise, serve the smaller file without mapping JSON.
      */
-	 $template_uri = get_stylesheet_uri();
+	$template_uri = get_stylesheet_uri();
  	if (defined('WP_DEBUG') && false === WP_DEBUG) {
  		$template_uri = get_template_directory_uri() . '/style-dist.css';
  	}
