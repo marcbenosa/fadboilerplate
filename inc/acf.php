@@ -74,10 +74,9 @@ function gutenberg_sections_register_acf_color_palette() {
 /**
  * Get the palette color class name.
  * @param  string        $search_color  Color string from Color Picker field.
- * @param  boolean       $is_background Boolean to return background if true, otherwise color class.
  * @return string|false                 Returns class if color exists in palette.
  */
-function get_palette_class($search_color, $is_background = false) {
+function get_palette_class_raw($search_color) {
 
     // get the colors
     $color_palette = current( (array) get_theme_support( 'editor-color-palette' ) );
@@ -88,13 +87,30 @@ function get_palette_class($search_color, $is_background = false) {
 
     foreach ( $color_palette as $color ) {
 
-        if ( $color['color'] == $search_color ) {
+        if ( 0 == strcasecmp( $color['color'] , $search_color  ) ) {
 
-            return ($is_background) ?
-                'has-' . $color['slug'] . '-background-color':
-                'has-' . $color['slug'] . '-color';
+            return $color['slug'];
         }
     }
 
     return false;
+}
+
+/**
+ * Get the palette color class name.
+ * @param  string        $search_color  Color string from Color Picker field.
+ * @param  boolean       $is_background Boolean to return background if true, otherwise color class.
+ * @return string|false                 Returns class if color exists in palette.
+ */
+function get_palette_class($search_color, $is_background = false) {
+
+    $color_class = get_palette_class_raw( $search_color );
+
+    // bail if there aren't any colors found
+	if ( !$color_class )
+		return false;
+
+    return ($is_background) ?
+        'has-' . $color_class . '-background-color':
+        'has-' . $color_class . '-color';
 }
