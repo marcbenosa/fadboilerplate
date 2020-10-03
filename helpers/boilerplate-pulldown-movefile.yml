@@ -14,8 +14,8 @@ local:
     mysqldump_options: "--add-drop-table --ignore-table={DB_NAME}.wp_wfVulnScanners --ignore-table={DB_NAME}.wp_wfThrottleLog --ignore-table={DB_NAME}.wp_wfStatus --ignore-table={DB_NAME}.wp_wfSNIPCache --ignore-table={DB_NAME}.wp_wfScanners --ignore-table={DB_NAME}.wp_wfReverseCache --ignore-table={DB_NAME}.wp_wfNet404s --ignore-table={DB_NAME}.wp_wfLogins --ignore-table={DB_NAME}.wp_wfLocs --ignore-table={DB_NAME}.wp_wfLockedOut --ignore-table={DB_NAME}.wp_wfLeechers --ignore-table={DB_NAME}.wp_wfKnownFileList --ignore-table={DB_NAME}.wp_wfIssues --ignore-table={DB_NAME}.wp_wfHoover --ignore-table={DB_NAME}.wp_wfHits --ignore-table={DB_NAME}.wp_wfFileMods --ignore-table={DB_NAME}.wp_wfCrawlers --ignore-table={DB_NAME}.wp_wfConfig --ignore-table={DB_NAME}.wp_wfBlocksAdv --ignore-table={DB_NAME}.wp_wfBlocks --ignore-table={DB_NAME}.wp_wfBlockedIPLog --ignore-table={DB_NAME}.wp_wfBadLeechers"
 
 staging:
-  vhost: "http://firstascentstaging.com/fadboilerplate/"
-  wordpress_path: "/var/www/firstascentstaging.com/public_html/fadboilerplate/" # use an absolute path here
+  vhost: "http://firstascentstaging.com/fadboilerplate"
+  wordpress_path: "/var/www/firstascentstaging.com/public_html/fadboilerplate" # use an absolute path here
 
   database:
     name: "fadboilerplate"
