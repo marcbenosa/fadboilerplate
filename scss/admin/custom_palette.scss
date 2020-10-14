@@ -1,0 +1,7 @@
+@import "../variables-site/colors";
+
+$base-color: $primary;
+$highlight-color: $secondary;
+$notification-color: $info;
+
+@import "admin";

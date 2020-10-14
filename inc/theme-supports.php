@@ -184,6 +184,35 @@ endif;
 add_action( 'after_setup_theme', 'fadboilerplate_setup' );
 
 /**
+ * Add custom admin theme
+ */
+add_action( 'admin_init', 'miles_add_colors' );
+function miles_add_colors() {
+	wp_admin_css_color(
+        'fadboilerplate',
+        'fadboilerplate',
+        get_template_directory_uri() . '/css/wp_admin.css', array( '#3f3f3f', '#103694', '#018ac6', '#17a2b8' ),
+        array(
+            'base' => '#e4e4e7',
+            'focus' => '#fff',
+            'current' => '#fff',
+        )
+    );
+}
+
+function fadboilerplate_set_default_admin_color($user_id) {
+    $args = array(
+        'ID' => $user_id,
+        'admin_color' => 'fadboilerplate'
+    );
+    wp_update_user( $args );
+}
+add_action('user_register', 'fadboilerplate_set_default_admin_color');
+
+if ( !current_user_can('manage_options') )
+remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.

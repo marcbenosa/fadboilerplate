@@ -54,6 +54,7 @@
     "//": "--- RUNTIME SCRIPTS ---",
     "scss:main": "node-sass scss/style.scss style.css --output-style compressed --source-map true",
     "scss:editor": "node-sass scss/editor.scss editor.css --output-style compressed",
+    "scss:admin": "node-sass scss/admin/custom_palette.scss css/wp_admin.css --output-style compressed",
     "compile:css": "npm run scss:main && npm run scss:editor",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'scss/**/*.scss' --fix || true",
@@ -62,7 +63,7 @@
     "bundle": "node bundle.js",
     "watch:scss": "npm run lint:scss && npm run compile:css && npm run prefix:css",
     "prod:scss:main": "node-sass scss/style.scss style-dist.css --output-style compressed",
-    "prod:compile:css": "npm run prod:scss:main",
+    "prod:compile:css": "npm run prod:scss:main && npm run scss:editor && npm run scss:admin",
     "prod:prefix:css": "postcss --use autoprefixer --replace style-dist.css --no-map",
     "develop": "npm-watch",
     "build": "npm run prod:compile:css && npm run prod:prefix:css"
