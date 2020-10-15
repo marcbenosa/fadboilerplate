@@ -89,6 +89,8 @@ tmp/
 #IGNORE JSON files, e.g. social media imports
 *.json
 !package.json
+!instagram-cache.json
+instagram-cache-log.txt
 
 #IGNORE backup files
 *_bak*

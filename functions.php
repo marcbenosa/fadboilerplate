@@ -108,6 +108,11 @@ foreach (glob(get_template_directory() . "/taxonomies/*.php") as $filename)
 }
 
 /**
+ * Instagram API
+ */
+// require_once(get_template_directory() . '/inc/instagram.php');
+
+/**
  * SVG handler
  */
 require_once(get_template_directory() . '/svg/svg.php');
