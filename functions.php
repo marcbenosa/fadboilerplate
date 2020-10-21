@@ -154,3 +154,13 @@ if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalke
  * Gutenberg Blocks using Advanced Custom Fields (ACF)
  */
 require_once(get_template_directory() . '/blocks/acf-blocks.php');
+
+
+/**
+ * Gutenberg: Load page editor Top Tool Bar mode by default
+ */
+function load_top_topbar_as_default() {
+    $script = "window.onload = function() { const isfixedToolbar = wp.data.select( 'core/edit-post' ).isFeatureActive( 'fixedToolbar' ); if ( !isfixedToolbar ) { wp.data.dispatch( 'core/edit-post' ).toggleFeature( 'fixedToolbar' ); } }";
+    wp_add_inline_script( 'wp-blocks', $script );
+}
+add_action( 'enqueue_block_editor_assets', 'load_top_topbar_as_default' );
