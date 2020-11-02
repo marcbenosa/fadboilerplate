@@ -34,12 +34,10 @@ $newsletter   = get_field('newsletter_shortcode', 'options');
                 </a>
             </div>
             <div class="col-sm-3">
-                <?php if($address["location1"] !== ""): var_dump($address); ?>
             	<div class="footer__address">
                     <div><?php echo esc_html( $address['location1'] );?></div>
                     <div><?php echo esc_html( $address['location2'] );?></div>
                 </div>
-                <?php endif; ?>
 
                 <?php if( have_rows('operational_hours', 'options') ): ?>
                     <div class="footer__operational">
