@@ -38,7 +38,7 @@ function fadboilerplate_scripts() {
 	}
 
 	wp_deregister_script('jquery');
-    wp_register_script( 'jquery', get_template_directory_uri() . '/lib/jquery-3.4.1.slim.min.js' );
+    wp_register_script( 'jquery', get_template_directory_uri() . '/lib/jquery-2.2.4.min.js' );
     wp_enqueue_script( 'jquery' );
 
 	// GSAP
