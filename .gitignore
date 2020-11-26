@@ -16,19 +16,6 @@
 # ignore all files starting with .
 .*
 
-# Track these
-!.gitignore
-!.browserslistrc
-!.editorconfig
-!.eslintrc
-!.stylelintrc.json
-!readme.md
-!README.md
-!CHANGELOG.md
-!composer.json
-!.htaccess
-!package.json
-
 # ignore all files that start with ~
 ~*
 
@@ -95,3 +82,16 @@ instagram-cache-log.txt
 #IGNORE backup files
 *_bak*
 *_backup*
+
+# Track these
+!.gitignore
+!.browserslistrc
+!.editorconfig
+!.eslintrc
+!.stylelintrc.json
+!readme.md
+!README.md
+!CHANGELOG.md
+!composer.json
+!.htaccess
+!package.json
