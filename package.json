@@ -57,7 +57,7 @@
     "scss:admin": "node-sass scss/admin/custom_palette.scss css/wp_admin.css --output-style compressed",
     "compile:css": "npm run scss:main && npm run scss:editor",
     "compile:rtl": "rtlcss style.css style-rtl.css",
-    "lint:scss": "wp-scripts lint-style 'scss/**/*.scss' --fix && wp-scripts lint-style 'blocks/**/*.scss' --fix || true",
+    "lint:scss": "wp-scripts lint-style '{scss,blocks}/**/*.scss' --fix || true",
     "lint:js": "wp-scripts lint-js 'js/*.js' --fix || true",
     "prefix:css": "postcss --use autoprefixer --replace style.css",
     "bundle": "node bundle.js",
