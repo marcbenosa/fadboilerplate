@@ -599,6 +599,77 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
+        },
+        {
+            "key": "field_5fce6e1114013",
+            "label": "Advanced",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5fce6e1914014",
+            "label": "Advanced Settings",
+            "name": "advanced_settings",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5fce6e3114015",
+                    "label": "Header Scripts",
+                    "name": "header_scripts",
+                    "type": "textarea",
+                    "instructions": "These scripts will be printed to the <code>&lt;head&gt;<\/code> section.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_5fce6e3f14016",
+                    "label": "Footer Scripts",
+                    "name": "footer_scripts",
+                    "type": "textarea",
+                    "instructions": "These scripts will be printed to the <code>&lt;footer&gt;<\/code> section.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "rows": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -618,5 +689,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607364020
+    "modified": 1607364181
 }

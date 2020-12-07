@@ -226,3 +226,37 @@ function fadboilerplate_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'fadboilerplate_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'fadboilerplate_content_width', 0 );
+
+/**
+ * Print scripts to the <head>
+ *
+ * Warning: There is no validation - copies directly from the acf field in
+ *          Theme Options settings.
+ */
+add_action( 'wp_head', 'tevebaugh2020_wp_head' );
+function tevebaugh2020_wp_head() {
+	if ( !is_admin() && !is_feed() && !is_robots() && !is_trackback() ) {
+		$advanced_settings = get_field('advanced_settings', 'options');
+		$header_scripts = ( isset( $advanced_settings['header_scripts'] ) ) ? $advanced_settings['header_scripts'] : '';
+		if ( !empty( $header_scripts ) ) {
+			echo $header_scripts;
+		}
+	}
+}
+
+/**
+ * Print scripts to the <footer>
+ *
+ * Warning: There is no validation - copies directly from the acf field in
+ *          Theme Options settings.
+ */
+add_action( 'wp_footer', 'tevebaugh2020_wp_footer' );
+function tevebaugh2020_wp_footer() {
+	if ( !is_admin() && !is_feed() && !is_robots() && !is_trackback() ) {
+		$advanced_settings = get_field('advanced_settings', 'options');
+		$footer_scripts = ( isset( $advanced_settings['footer_scripts'] ) ) ? $advanced_settings['footer_scripts'] : '';
+		if ( !empty( $footer_scripts ) ) {
+			echo $footer_scripts;
+		}
+	}
+}
