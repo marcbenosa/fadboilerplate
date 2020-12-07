@@ -75,6 +75,7 @@ tmp/
 
 #IGNORE JSON files, e.g. social media imports
 *.json
+!acf-json/*.json
 !package.json
 !instagram-cache.json
 instagram-cache-log.txt
