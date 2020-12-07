@@ -233,8 +233,8 @@ add_action( 'after_setup_theme', 'fadboilerplate_content_width', 0 );
  * Warning: There is no validation - copies directly from the acf field in
  *          Theme Options settings.
  */
-add_action( 'wp_head', 'tevebaugh2020_wp_head' );
-function tevebaugh2020_wp_head() {
+add_action( 'wp_head', 'fadboilerplate_wp_head' );
+function fadboilerplate_wp_head() {
 	if ( !is_admin() && !is_feed() && !is_robots() && !is_trackback() ) {
 		$advanced_settings = get_field('advanced_settings', 'options');
 		$header_scripts = ( isset( $advanced_settings['header_scripts'] ) ) ? $advanced_settings['header_scripts'] : '';
@@ -250,8 +250,8 @@ function tevebaugh2020_wp_head() {
  * Warning: There is no validation - copies directly from the acf field in
  *          Theme Options settings.
  */
-add_action( 'wp_footer', 'tevebaugh2020_wp_footer' );
-function tevebaugh2020_wp_footer() {
+add_action( 'wp_footer', 'fadboilerplate_wp_footer' );
+function fadboilerplate_wp_footer() {
 	if ( !is_admin() && !is_feed() && !is_robots() && !is_trackback() ) {
 		$advanced_settings = get_field('advanced_settings', 'options');
 		$footer_scripts = ( isset( $advanced_settings['footer_scripts'] ) ) ? $advanced_settings['footer_scripts'] : '';
