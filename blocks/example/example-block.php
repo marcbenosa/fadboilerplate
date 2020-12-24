@@ -10,13 +10,13 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = '[name]-' . $block['id'];
+$id = 'example-' . $block['id'];
 if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'block-[name]';
+$className = 'block-example';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
@@ -29,9 +29,9 @@ $content = get_field( 'content' );
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-	<div class="block-[name]__container bg-primary text-light p-5">
+	<div class="block-example__container bg-primary text-light p-5">
         <h1>Example Block</h1>
-		<div class="block-[name]__text-container">
+		<div class="block-example__text-container">
             <p><?php echo esc_html( $content ); ?></p>
 		</div>
 	</div>

@@ -5,24 +5,9 @@
  *   and overrides are for larger sizes.
  */
 
-.block-[name] {
+.block-example {
 
-  &__container { }
+	&__container { }
 
-}
-
-/**
- * Media Queries
- */
-@media (min-width: $xsmall-devices) {
-
-}
-@media (min-width: $phone-size) {
-
-}
-@media (min-width: $tablet-size) {
-
-}
-@media (min-width: $desktop-size) {
-
+	@include media-breakpoint-up(md) { }
 }
