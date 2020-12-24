@@ -48,7 +48,7 @@ add_action('wp_head', function() { ?>
 /**
  * Add items to quickmenu
  */
-function block_library_quickmenu() { ?>
+add_action('wp_footer', function () { ?>
 	<script>
 		( function ( body ) {
 			'use strict';
@@ -67,28 +67,40 @@ function block_library_quickmenu() { ?>
 			}
 		} )( document.body );
 	</script>
-<?php }
-add_action('wp_footer', 'block_library_quickmenu');
+<?php } );
 
-/**
- * Wrap custom gutenberg blocks in divs.
- */
-function block_library_block_wrapper( $block_content, $block ) {
-	if ( is_page( 'block-library' ) ) {
-		$name = $block['blockName'];
-		if ( 'acf/' === substr( $name, 0, 4 ) ) {
-			$name = ucwords( substr( $name, 4 ) );
-			$content = '<h2 id="'. $name .'" class="block-library__name">' . $name . '</h2>';
-			$content .= '<div class="block-library__block">';
-			$content .= $block_content;
-			$content .= '</div>';
-			return $content;
+// Based on https://github.com/WordPress/WordPress/blob/965fcddcf68cf4fd122ae24b992e242dfea1d773/wp-includes/blocks.php#L755
+add_filter('the_content', function ($content) {
+	$output = '';
+	$blocks     = parse_blocks($content);
+	$acf_blocks = acf_get_block_types();
+
+	foreach ($blocks as $block) {
+		$name  = $block['blockName'];
+		$title = $name;
+		if ($name == '') continue;
+
+		if ( array_key_exists( $name, $acf_blocks ) ) {
+			$title = $acf_blocks[$name]['title'];
 		}
+
+		$block_output = render_block($block);
+
+		$output .= '<div class="block-library__block">';
+		$output .= '<h2 id="'. $name .'" class="block-library__name">' . $title . '</h2>';
+		$output .= $block_output;
+		$output .= '</div>';
 	}
 
-	return $block_content;
-}
-add_filter( 'render_block', 'block_library_block_wrapper', 20, 2 );
+	// If there are blocks in this content, we shouldn't run wpautop() on it later.
+	$priority = has_filter('the_content', 'wpautop');
+	if ($priority !== false && doing_filter('the_content') && has_blocks($content)) {
+		remove_filter('the_content', 'wpautop', $priority);
+		add_filter('the_content', '_restore_wpautop_hook', $priority + 1);
+	}
+
+	return $output;
+}, 5);
 
 get_header(); ?>
 
@@ -96,15 +108,25 @@ get_header(); ?>
         <main id="main" class="site-main" role="main">
 
             <?php while ( have_posts() ) : the_post(); ?>
-				<div class="quickmenu">
-					<h4>Quickmenu</h4>
-					<ul id="quickmenu-menu"></ul>
-				</div>
-                <?php get_template_part( 'template-parts/content', 'block-library' ); ?>
 
-            <?php endwhile; // end of the loop. ?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class("block-library"); ?>>
 
-        </main><!-- #main -->
-    </div><!-- #primary -->
+					<div class="quickmenu">
+						<h4>Quickmenu</h4>
+						<ul id="quickmenu-menu"></ul>
+					</div>
+
+					<header class="entry-header">
+						<?php the_title( '<h1 class="entry-title display-1">', '</h1>' ); ?>
+					</header>
+
+					<?php the_content(); ?>
+
+				</article>
+
+            <?php endwhile; ?>
+
+        </main>
+    </div>
 
 <?php get_footer(); ?>

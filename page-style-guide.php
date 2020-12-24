@@ -5,7 +5,7 @@
  *
  * @package fadboilerplate
  */
-function hook_style_guide_styles() { ?>
+add_action('wp_head', function () { ?>
 	<style>
 		.style-guide-container .row {
 			padding-bottom: 10rem;
@@ -55,33 +55,28 @@ function hook_style_guide_styles() { ?>
 		}
 
 	</style>
-<?php }
-add_action('wp_head', 'hook_style_guide_styles');
+<?php } );
+
 get_header(); ?>
 
 	<div id="primary" class="content-area style-guide-page">
         <main id="main" class="site-main" role="main">
 
             <?php while ( have_posts() ) : the_post(); ?>
-				<div class="quickmenu">
-					<h4>Quickmenu</h4>
-					<ul id="quickmenu-menu">
-						<li><a href="#colors">Colors</a></li>
-						<li><a href="#color-utilities">Color Utilities</a></li>
-						<li><a href="#buttons">Buttons</a></li>
-						<li><a href="#type-blog">Type (blog)</a></li>
-						<li><a href="#type">Type</a></li>
-						<li><a href="#forms">Forms</a></li>
-						<li><a href="#images">Images</a></li>
-						<li><a href="#quotes">Quotes</a></li>
-						<li><a href="#other">Other</a></li>
-					</ul>
-				</div>
-                <?php get_template_part( 'template-parts/content', 'style-guide' ); ?>
 
-            <?php endwhile; // end of the loop. ?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class("style-guide"); ?>>
+					<div class="container-fluid">
+						<div class="entry-content">
+							<?php
+								the_content();
+							?>
+						</div>
+					</div>
+				</article>
 
-        </main><!-- #main -->
-    </div><!-- #primary -->
+            <?php endwhile;?>
+
+        </main>
+    </div>
 
 <?php get_footer(); ?>
