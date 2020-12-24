@@ -15,25 +15,6 @@ function my_block_category( $categories, $post ) {
 }
 add_filter( 'block_categories', 'my_block_category', 10, 2);
 
-function fadboilerplate_gutenberg_theme_supports() {
-	//https://weblines.com.au/gutenberg-blocks-wide-alignment-full-width/
-	add_theme_support( 'align-wide' );
-
-	// Disable Custom Colors
-	// add_theme_support( 'disable-custom-colors' );
-
-	// Editor Color Palette
-	// add_theme_support( 'editor-color-palette', array(
-	// 	array(
-	// 		'name'  => __( 'Dark Blue', 'ea-starter' ),
-	// 		'slug'  => 'darkblue',
-	// 		'color'	=> '#0c131e',
-	// 	),
-	// ) );
-}
-add_action( 'after_setup_theme', 'fadboilerplate_gutenberg_theme_supports' );
-
-
 //reference: https://www.advancedcustomfields.com/resources/acf_register_block_type/
 function register_acf_block_types() {
 
