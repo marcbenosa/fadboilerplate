@@ -29,10 +29,10 @@ wp db import tmp/stagingboilerplate.sql
 wp search-replace "firstascentstaging.com/fadboilerplate" "fad.local/$1" --skip-columns=guid
 
 ## Update URL from the imported database
-wp option update url "http://fad.local/$1"
+wp option update siteurl "http://fad.local/$1"
 
 ## Update Site Title from the imported database
-wp option update title "Site Title"
+wp option update blogname "Site Title"
 
 ## remove tagline by default
 wp option update blogdescription ""
