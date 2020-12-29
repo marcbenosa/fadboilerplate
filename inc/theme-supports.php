@@ -245,6 +245,23 @@ function fadboilerplate_wp_head() {
 }
 
 /**
+ * Print scripts after the opening <body>
+ *
+ * Warning: There is no validation - copies directly from the acf field in
+ *          Theme Options settings.
+ */
+add_action( 'wp_body_open', 'fadboilerplate_wp_body_open' );
+function fadboilerplate_wp_body_open() {
+	if ( !is_admin() && !is_feed() && !is_robots() && !is_trackback() ) {
+		$advanced_settings = get_field('advanced_settings', 'options');
+		$body_scripts = ( isset( $advanced_settings['body_scripts'] ) ) ? $advanced_settings['body_scripts'] : '';
+		if ( !empty( $body_scripts ) ) {
+			echo $body_scripts;
+		}
+	}
+}
+
+/**
  * Print scripts to the <footer>
  *
  * Warning: There is no validation - copies directly from the acf field in

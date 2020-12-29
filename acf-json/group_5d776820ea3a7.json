@@ -650,6 +650,25 @@
                     "rows": "",
                     "new_lines": ""
                 },
+				{
+                    "key": "field_5feb4be61daf8",
+                    "label": "Body Scripts",
+                    "name": "body_scripts",
+                    "type": "textarea",
+                    "instructions": "These scripts will be printed after the opening <code>&lt;body&gt;<\/code> tag.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                },
                 {
                     "key": "field_5fce6e3f14016",
                     "label": "Footer Scripts",
@@ -689,5 +708,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607364181
+    "modified": 1609255966
 }
