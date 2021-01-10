@@ -20,9 +20,6 @@ mysql -uroot -proot $1 -e "FLUSH PRIVILEGES;"
 cp wp-content/themes/$1/helpers/wp-config-local.php wp-config-local.php
 cp wp-config-local.php wp-config.php
 
-##install
-#wp core install --url="http://fad.local/$1" --title="Site Title" --admin_user="fad-admin" --admin_password="D4d843B9ZsVoAsgy" --admin_email="info@firstascentdesign.com"
-
 #Copy over the database from Staging Boilerplate instead.
 mkdir tmp/
 scp poof@165.227.116.120:/var/www/firstascentstaging.com/public_html/fadboilerplate/tmp/stagingboilerplate.sql tmp/stagingboilerplate.sql
@@ -102,11 +99,6 @@ wp plugin install wp-rollback
 wp plugin install wps-hide-login
 wp plugin install wordpress-seo
 wp plugin install acf-content-analysis-for-yoast-seo
-
-## Plugins we don't use that often anymore. Not on by default.
-# wp plugin install jetpack
-# wp plugin install wp-example-content
-# wp plugin install wp-help
 
 ## Install Plugins from FA Repository
 # How to download from Google Drive
