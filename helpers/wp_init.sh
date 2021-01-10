@@ -8,6 +8,9 @@
 #cd to the site root
 cd /var/www/public/$1
 
+# Run renameall
+python wp-content/themes/$1/helpers/renameall.py $1
+
 #create database
 mysql -uroot -proot  -e "CREATE DATABASE $1;"
 mysql -uroot -proot $1 -e "GRANT ALL PRIVILEGES ON $1.* TO \"$1\"@\"localhost\" IDENTIFIED BY \"$1\";"
