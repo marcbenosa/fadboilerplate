@@ -75,8 +75,8 @@ wp theme activate $1
 #     page_on_front			14
 
 ## Set the Front page and Blog Page
-wp option update page_on_front $(wp post list --post_title="Front Page" --fields=ID --format=ids)
-wp option update page_for_posts $(wp post list --post_title="Blog" --fields=ID --format=ids)
+wp option update page_on_front $(wp post list --post_type=page --title="Front Page" --fields=ID --format=ids)
+wp option update page_for_posts $(wp post list --post_type=page --title="Blog" --fields=ID --format=ids)
 
 ## Install Plugins from WordPress.org via WP CLI
 wp plugin install aryo-activity-log
@@ -85,7 +85,6 @@ wp plugin install block-options
 wp plugin install bulk-block-converter
 wp plugin install duplicate-post
 wp plugin install easy-wp-smtp
-wp plugin install kadence-blocks
 wp plugin install ninja-forms
 wp plugin install redirection
 wp plugin install regenerate-thumbnails
@@ -96,7 +95,6 @@ wp plugin install tinymce-advanced
 wp plugin install w3-total-cache
 wp plugin install white-label-cms
 wp plugin install wordfence
-wp plugin install wp-admin-ui-customize
 wp plugin install wp-rollback
 wp plugin install wps-hide-login
 wp plugin install wordpress-seo
@@ -125,7 +123,6 @@ wp plugin activate block-options
 wp plugin activate bulk-block-converter
 wp plugin activate duplicate-post
 # wp plugin activate easy-wp-smtp
-# wp plugin activate kadence-blocks
 wp plugin activate ninja-forms
 # wp plugin activate redirection
 wp plugin activate regenerate-thumbnails
@@ -136,7 +133,6 @@ wp plugin activate tinymce-advanced
 # wp plugin activate w3-total-cache
 # wp plugin activate white-label-cms
 # wp plugin activate wordfence
-# wp plugin activate wp-admin-ui-customize
 wp plugin activate wp-rollback
 # wp plugin activate wps-hide-login
 wp plugin install wordpress-seo

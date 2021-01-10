@@ -14,17 +14,21 @@
  * to "development" or "production" in each particular server/environment.
  */
 
-//add this to .htacces in root to allow plugin to work SetEnv WP_ENV 'development'
+// add this to .htacces in root to allow plugin to work
+// SetEnv WP_ENV 'development'
 if ( getenv("WP_ENV") !== false ) {
 	if ( $_SERVER['WP_ENV'] == 'development' ) {
-	    $plugins = array(
-	        'wordfence/wordfence.php',
-	        'w3-total-cache/w3-total-cache.php',
-	        'sumo/sumo.php',
-	        'backwpup/backwpup.php',
-	        'jetpack/jetpack.php',
-	    );
-	    require_once(ABSPATH . 'wp-admin/includes/plugin.php');
-	    deactivate_plugins($plugins);
+		$plugins = array(
+			'backwpup/backwpup.php',
+			'easy-wp-smtp/easy-wp-smtp.php',
+			'jetpack/jetpack.php',
+			'sumo/sumo.php',
+			'w3-total-cache/w3-total-cache.php',
+			'white-label-cms/white-label-cms.php',
+			'wordfence/wordfence.php',
+			'wps-hide-login/wps-hide-login.php',
+		);
+		require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+		deactivate_plugins($plugins);
 	}
 }
