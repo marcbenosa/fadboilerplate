@@ -26,6 +26,15 @@ function register_acf_block_types() {
 	    'render_template'   => 'blocks/example/example-block.php',
 	    'icon'              => 'wordpress',
 	    'keywords'          => array( 'example' ),
+		'example'           => array(
+			'attributes' => array(
+				'mode' => 'preview',
+				'data' => array(
+					'preview_image'   => get_stylesheet_directory_uri() . "/blocks/example/example-block_preview-image.png",
+					'is_preview'    => true
+				)
+			)
+		)
 	));
 }
 

@@ -26,6 +26,13 @@ if( !empty($block['align']) ) {
 
 // Get ACF fields.
 $content = get_field( 'content' );
+
+// Display Preview
+if (isset($block['data']['is_preview']) && $block['data']['is_preview'] == true) :
+    $preview_image = $block['data']['preview_image'];
+    echo '<img src="' . $preview_image . '"/>';
+else :
+// Render Block
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
@@ -36,3 +43,5 @@ $content = get_field( 'content' );
 		</div>
 	</div>
 </section>
+
+<?php endif; ?>
