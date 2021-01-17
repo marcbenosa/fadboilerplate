@@ -14,3 +14,16 @@ html {
 
 	@extend .container;
 }
+
+.wp-block[data-align="full"] {
+
+	.wp-block-group {
+
+		max-width: 100%;
+
+		&__inner-container {
+
+			@extend .container;
+		}
+	}
+}
