@@ -50,16 +50,6 @@ function allow_mime_types($mimes) {
 add_filter('upload_mimes', 'allow_mime_types');
 
 /**
- * Hide wp admin bar from users that aren't admins
- */
-function remove_admin_bar() {
-	if (!current_user_can('administrator') && !is_admin()) {
-	    show_admin_bar(false);
-	}
-}
-add_action('after_setup_theme', 'remove_admin_bar');
-
-/**
  * Modify the Lifespan of a public preview link
  */
 if( class_exists( 'DS_Public_Post_Preview' ) ) {
