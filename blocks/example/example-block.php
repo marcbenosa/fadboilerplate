@@ -45,3 +45,11 @@ else :
 </section>
 
 <?php endif; ?>
+
+<?php //Any minor scripts that are related to the individual block. ?>
+<script>
+(function($) {
+
+
+})(jQuery);
+</script>

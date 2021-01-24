@@ -207,6 +207,90 @@ function backtotop() {
 // }
 
 /**
+ * Reveal the contents of the main .entry-content div on scroll
+ */
+function revealOnScroll() {
+	var controller = new ScrollMagic.Controller(),
+		triggerHook = 0.85, // show, when scrolled x% into view (e.g. "onEnter" => 1 "onCenter" => 0.5 "onLeave" => 0)
+		durationNum = .9,
+		duration = (durationNum*100).toString().concat("%"), // hide x% before exiting view = triggerHook% + duration% from bottom
+		offset = 50; // move trigger to center of element
+
+	// add it to any items specifically tagged
+	if($(".fadboilerplate-fade-in")) {
+		$(".fadboilerplate-fade-in").each(function(index, element) {
+			// build scene
+			new ScrollMagic.Scene({
+				triggerElement: element,
+				triggerHook: triggerHook,
+				duration: duration,
+				offset: offset
+			})
+			.setClassToggle(element, "visible") // add class to reveal
+			// .addIndicators() // add indicators (requires plugin)
+			.addTo(controller);
+		});
+	}
+
+	/**
+	 * //add the fade in to elements in the main .entry-content div
+	 */
+	if($(".content-fade-in-parent")) {
+		//add classes for particular blocks that should NOT have this effect applied.
+		classes_to_skip = [
+			"wp-block-group", //skip groups
+		];
+
+		//Loop through children of main .entry-content div
+		$(".content-fade-in-parent > *").each(function(index, element) {
+			addToController = true;
+
+			$.each(classes_to_skip, function(index) {
+				if( $(element).hasClass( classes_to_skip[index] ) ) { addToController = false; }
+			});
+
+			if(addToController) {
+				$(element).addClass("fadboilerplate-f-in");
+
+				// build scene
+				new ScrollMagic.Scene({
+					triggerElement: element,
+					triggerHook: triggerHook,
+					offset: offset
+				})
+				.setClassToggle(element, "visible") // add class to reveal
+				// .addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+			}
+		});
+		//Loop through children of main .entry-content div that are groups
+		$(".content-fade-in-parent > .wp-block-group .wp-block-group__inner-container > *").each(function(index, element) {
+			addToController = true;
+
+			$.each(classes_to_skip, function(index) {
+				if( $(element).hasClass( classes_to_skip[index] ) ) { addToController = false; }
+			});
+
+			if(addToController) {
+				$(element).addClass("fadboilerplate-f-in");
+
+				// build scene
+				new ScrollMagic.Scene({
+					triggerElement: element,
+					triggerHook: triggerHook,
+					offset: offset
+				})
+				.setClassToggle(element, "visible") // add class to reveal
+				// .addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+			}
+		});
+	}
+
+
+}
+
+/**
  * On Loads
  */
 $(document).ready(function() {
@@ -216,4 +300,5 @@ $(document).ready(function() {
   anchor_smooth_scrolling();
   backtotop();
   // scrollMagicGsap();
+  // revealOnScroll()
 });
