@@ -1,0 +1,41 @@
+.btn {
+
+	@include button-variant($secondary, $secondary, darken($secondary, 15%), darken($secondary, 15%));
+
+	&.nf-element {
+		border: none;
+		box-shadow: none;
+		text-shadow: none;
+		font-size: 1em;
+	}
+
+	@media (max-width: $tablet-size) {
+		margin-top: 2rem;
+	}
+}
+
+.btn-primary {
+
+	@include button-variant($primary, $primary, $secondary, $secondary);
+}
+
+
+.cta-button-load-more {
+
+	.load-more-button {
+		background: $primary;
+		border: 0;
+		border-radius: 0;
+		color: $white;
+		font-size: 1rem;
+
+		@include transition(0.4s all);
+
+		@include hover-focus-active {
+			background: $secondary;
+			border-radius: 0;
+			outline: 0;
+		}
+
+	}
+}
