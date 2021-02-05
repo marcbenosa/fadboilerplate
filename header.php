@@ -26,3 +26,6 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'fadboilerplate' ); ?></a>
 
 	<?php get_template_part( 'template-parts/content', 'header' ); ?>
+
+	<div id="content" class="site-content container">
+	    <div class="site-header__spacer top"></div>

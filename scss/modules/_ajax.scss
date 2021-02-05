@@ -1,0 +1,95 @@
+.ajax-loader {
+    $ajax-loader-timing: 0.4s ease-in-out;
+    position: relative;
+
+    &__spinner {
+        transform: scale(0);
+        transition: transform $ajax-loader-timing;
+    }
+
+    > .ajax-loader__spinner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    &__item {
+        opacity: 0;
+        transform: translateY(2rem);
+        transition: opacity $ajax-loader-timing, transform $ajax-loader-timing;
+
+        &.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &__load-more {
+        transform: scale(0);
+        pointer-events: none;
+
+        &__button {
+            background-color: $secondary;
+            border: 0;
+            border-radius: 0;
+            height: 2.4375rem;
+            width: 2.4375rem;
+            opacity: 1;
+            color: $white;
+            font-size: 16px;
+            transition: background-color $ajax-loader-timing, opacity $ajax-loader-timing;
+
+            @include hover-focus-active {
+                background-color: $primary;
+                border-radius: 0;
+                outline: 0;
+            }
+
+            svg {
+                fill: $white;
+                height: calc(2.4375rem / 2);
+                width: calc(2.4375rem / 2);
+            }
+        }
+
+        &.enabled {
+            transform: scale(1);
+            pointer-events: auto;
+        }
+    }
+
+    &__load-more-spinner {
+        display: none;
+    }
+
+    //
+    // Modifiers
+    //
+    &.initialized {
+
+        .ajax-loader__load-more-spinner {
+            display: block;
+        }
+    }
+
+    &.loading {
+
+        .ajax-loader {
+
+            &__spinner {
+                transform: scale(1);
+            }
+
+            &__content {
+
+            }
+
+            &__load-more {
+                pointer-events: none;
+                transform: scale(0);
+            }
+        }
+    }
+}

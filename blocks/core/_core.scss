@@ -1,0 +1,23 @@
+//
+// Group
+//
+.wp-block-group {
+
+	&.is-style-gutter {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+
+	&:not(.alignfull):not(.alignwide), {
+
+		@extend .container;
+	}
+
+	&.alignfull {
+
+		.wp-block-group__inner-container {
+
+			@extend .container;
+		}
+	}
+}

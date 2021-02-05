@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * Template part for displaying page content in page.php
  *
@@ -16,7 +16,7 @@
 
 	<?php fadboilerplate_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content content-fade-in-parent">
 		<?php
 		the_content();
 

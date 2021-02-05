@@ -14,7 +14,7 @@
     "url": "https://bitbucket.org/firstascentdesignllc/fadboilerplate/src/master/"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^9.0.0",
+    "@wordpress/scripts": "^12.6.0",
     "archiver": "^4.0.1",
     "autoprefixer": "^9.7.6",
     "node-sass": "^4.14.1",
