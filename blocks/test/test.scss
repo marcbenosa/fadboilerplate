@@ -1,0 +1,6 @@
+.block-example1 {
+
+	&__container { }
+
+	@include media-breakpoint-up(md) { }
+}
